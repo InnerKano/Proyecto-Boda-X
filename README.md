@@ -1,5 +1,5 @@
 # Proyecto-Boda
 
-## Este es el proyecto ppipipip
+## Proyecto FINAL Ingesoft
 
-### Perro
+### Organizador de Boda 
