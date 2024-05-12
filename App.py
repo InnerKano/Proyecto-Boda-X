@@ -1,5 +1,6 @@
 from flask import Flask 
 from flask_mysqldb import MySQL
+from flask import Flask, render_template
 
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
@@ -11,9 +12,9 @@ mysql = MySQL(app)
 mysql = MySQL()
 
 @app.route('/')
-def Index():
-    return 'Hello'
-
+def index():
+    return render_template('Pruebas.html')
+    
 if __name__ == '__main__':
     app.run(port = 3000, debug = True)
 
