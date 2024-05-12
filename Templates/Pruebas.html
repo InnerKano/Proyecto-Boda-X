@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="css/login_style.css">
+  
+</head>
 <body>
+  
+  <header>
+    <nav>
+      <ul>
+        <label><a href="index.html">Home</a></label>
+        <label><a href="login.html">Login</a></label>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    
 
-<h2>Formulario de Usuario</h2>
-
-<form action="/submit_usuario" method="post">
-  <label for="nombre">Nombre:</label><br>
-  <input type="text" id="nombre" name="nombre"><br>
-  <label for="email">Email:</label><br>
-  <input type="text" id="email" name="email"><br>
-  <label for="contrasena">Contraseña:</label><br>
-  <input type="password" id="contrasena" name="contrasena"><br>
-  <label for="apellido">Apellido:</label><br>
-  <input type="text" id="apellido" name="apellido"><br>
-  <input type="submit" value="Submit">
-</form> 
-
+    <div class="login_box">
+      <h1 class="tittle">Login</h1>
+      <form class="former" action="login.php" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>Footer</p>
+  </footer>
 </body>
 </html>
