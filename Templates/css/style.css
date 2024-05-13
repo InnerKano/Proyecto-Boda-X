@@ -1,0 +1,309 @@
+
+/* Estilos generales */
+    * {
+        font-family: "Merriweather", serif;
+        color: var(--color-neutro-oscuro);
+    }
+
+    /* Haz que el favicon sea redondo */
+    link[rel="icon"] {
+        border-radius: 50%; /* Hace que el borde sea redondeado */
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-neutro-claro);
+    }
+
+
+
+
+/* Estilos para el menú de navegación */
+    /* Espacio para el menu de navegacion */
+    #espacio-nav{
+        grid-area: H;
+        width: 100%;
+        height: 80px;
+    }
+    /* Estilos nav generales */
+    nav {
+        
+        white-space: nowrap;
+        grid-area: N;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: inline;
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+    }
+    /* Estilos para  el logo */
+    .logo-container .logo-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 5px;
+        text-decoration: none;
+    }
+    .logo {
+        background-image: url('/Templates/images/icon/logo_boda.png');
+        background-size: contain;
+        background-position: center;
+        border-radius: 100%; /* Hace que el contenedor sea redondo */
+        width: 80px;
+        height: 80px;
+        margin-right: 5px;
+    }
+    .logo-text{
+
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-left: 32px;
+        padding-right: 32px;
+        width: 100%;
+        position: fixed;
+        background: var(--color-neutro-claro);
+    }
+    
+
+    /* Estilos direcciones*/
+    .right-nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+    }
+    .nav-links li{
+        margin-right: 32px;
+    }
+    /* Estilos iconos */
+    .nav-icons a i {
+        font-size: 24px; /* Tamaño del icono */
+        color: var(--color-secundario-claro-1);
+        margin: 0 32px;
+    }
+    .nav-icons a i:hover {
+        color: var(--color-secundario-claro-2);
+    }
+
+/* Estilos para el encabezado */
+    header {
+        display: flex; /* Usa un contenedor flexible para alinear los elementos */
+        justify-content: space-between; /* Distribuye los elementos a lo largo del eje principal (horizontalmente) */
+        align-items: center; /* Centra verticalmente los elementos */
+        grid-area: H;
+        padding: 0;
+        margin: 0;
+        height: 25%; /* Altura del encabezado */
+        border-bottom: 0.5px solid #d9d9d9;
+        /* ESPACIO PARA EL NAV */
+        padding-top: 80px;
+    }
+    /* Estilos para la parte izquierda del encabezado */
+        .header-izquierda {
+            flex: 1; /* Ocupa todo el espacio disponible en el contenedor flexible */
+            width: 50%; /* Ocupa la mitad del ancho de la pantalla */
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: stretch;
+            padding: 32px;
+        }
+
+        .text-header {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .text-header h1{
+            color: var(--color-primario-oscuro-4)
+        }
+        .text-header p{
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+        }
+        /* SEARCH BAR */
+        .search-container {
+            
+        }
+
+        .search-container input[type="text"] {
+            box-shadow: 0 2px 8px #00000026;
+            width: 70%;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background-color: #A084CA;
+            background-image: linear-gradient(to right, #957DAD, #A084CA);
+            color: white;
+        }
+
+        .search-container input[type="text"]::placeholder {
+            color: white;
+            opacity: 1;
+        }
+
+        /* Añade tu ícono de lupa aquí */
+        .search-container::before {
+            content: ''; /* Utiliza una imagen o un ícono de fuente */
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            /* Añade estilos para tu ícono aquí */
+        }
+
+
+
+    /* Estilos para la parte derecha del encabezado */
+        .header-derecha {
+            flex-shrink: 0; /* No se encoge para adaptarse al contenido */
+            width: 50%; /* Ocupa la mitad del ancho de la pantalla */
+        }
+
+        /* Estilos para hacer la imagen header responsive */
+        .imagen-header {
+            max-width: 100%; /* La imagen no superará el ancho del contenedor padre */
+            height: 100%; /* La altura se ajustará automáticamente para mantener la relación de aspecto */
+            display: block; /* Elimina el espacio adicional debajo de la imagen */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+
+        }
+
+
+/* Estilos para el contenido principal */
+    main {
+        grid-area: M;
+    }
+
+    /* Estilos para el pie de página */
+    footer {
+        grid-area: F;
+    }
+
+    .ContenedorGrid {
+        /* Grilla para el diseño de la web */
+        width: 100%;  
+        display: grid;
+        grid-gap: 1px;
+        grid-template-columns: auto 1fr auto; /* Columnas ajustadas automáticamente, contenido principal flexible, y espacio */
+        grid-template-rows: auto auto 1fr auto auto; /* Filas para el menú, encabezado, contenido principal, footer y espacio */
+        grid-template-areas: 
+            "N N N"
+            "H H H"
+            "M M M"
+            "M M M"
+            "F F F";
+    }
+
+
+
+
+
+/* CARD PRUEBA */
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        padding: 32px;
+        grid-gap: 1.5rem;
+    }
+    .cards-container-up {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1.5rem;
+    }
+    .cards-container-down{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+
+    }
+    .card {
+        display: flex;
+        flex-direction: row;
+        box-shadow: 0 2px 8px #00000026;
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+        border-radius: 20px;
+        /* FALTA BORDER RADIUS */
+    }
+
+    .card img {
+        max-width: 50%;
+        height: 100%;
+        margin-bottom: 1rem;
+        border-radius: 20px 0px 0px 20px;
+    }
+
+    .card-info {
+        padding: 1rem;
+        flex-grow: 1;
+        text-align: center;
+        align-self: center;
+
+    }
+
+    .card-info h2 {
+        margin-bottom: 0.5rem;
+    }
+
+    .card-info p {
+        margin-bottom: 1rem;
+    }
+
+    .card-button {
+        background-color: pink;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        align-self: flex-end;
+    }
+
+
+/* Estilo para el inicio de sesion */
+    #login-form {
+        overflow: hidden; /* Oculta las barras de desplazamiento */
+        position: fixed;
+        top: 81px;
+        right: -400px; /* Posición inicial fuera de la pantalla */
+        width: auto; /* El ancho se ajustará automáticamente al contenido */
+        height: 100%;
+        z-index: 1000;
+        transition: right 0.5s ease; /* Animación de transición */
+        border-left: 0.5px solid #d9d9d9;
+    }
+    .aside-object {
+        padding: 0px;
+        margin: 0px;
+        width: 400px; /* Ancho del elemento al 100% del contenedor */
+        height: 100%; /* Altura del elemento al 100% del contenedor */
+        overflow: hidden; /* Oculta las barras de desplazamiento */
+    }
+
+
