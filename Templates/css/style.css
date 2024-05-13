@@ -1,6 +1,5 @@
 
 /* Estilos generales */
-<<<<<<< HEAD
     * {
         font-family: "Merriweather", serif;
         color: var(--color-neutro-oscuro);
@@ -16,35 +15,11 @@
         padding: 0;
         background-color: var(--color-neutro-claro);
     }
-=======
-* {
-    font-family: "Merriweather", serif;
-    color: var(--color-neutro-oscuro);
-}
-
-/* Haz que el favicon sea redondo */
-link[rel="icon"] {
-    border-radius: 50%; /* Hace que el borde sea redondeado */
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-neutro-claro);
-}
-
-/* Estilos para el encabezado */
-header {
-    background-color: #333;
-    grid-area: H;
-}
->>>>>>> parent of 7533f35 (andy caremonda)
 
 
 
 
 /* Estilos para el menú de navegación */
-<<<<<<< HEAD
     /* Espacio para el menu de navegacion */
     #espacio-nav{
         grid-area: H;
@@ -54,22 +29,13 @@ header {
     /* Estilos nav generales */
     nav {
         
-=======
-    /* Estilos nav generales */
-    nav {
->>>>>>> parent of 7533f35 (andy caremonda)
         white-space: nowrap;
         grid-area: N;
         display: flex;
         align-items: center;
-<<<<<<< HEAD
         border-bottom: 1px solid #d9d9d9;
     }
 
-=======
-    }
-    
->>>>>>> parent of 7533f35 (andy caremonda)
     nav ul {
         list-style-type: none;
         margin: 0;
@@ -108,7 +74,6 @@ header {
         display: flex;
         justify-content: space-around;
         align-items: center;
-<<<<<<< HEAD
         padding-left: 32px;
         padding-right: 32px;
         width: 100%;
@@ -116,33 +81,20 @@ header {
         background: var(--color-neutro-claro);
     }
     
-=======
-        padding-left: 32px; 
-        padding-right: 32px;
-    }
->>>>>>> parent of 7533f35 (andy caremonda)
 
     /* Estilos direcciones*/
     .right-nav{
         display: flex;
         justify-content: space-around;
         align-items: center;
-<<<<<<< HEAD
         text-align: center;
-=======
-
->>>>>>> parent of 7533f35 (andy caremonda)
     }
     .nav-links li{
         margin-right: 32px;
     }
     /* Estilos iconos */
     .nav-icons a i {
-<<<<<<< HEAD
         font-size: 24px; /* Tamaño del icono */
-=======
-        font-size: 32px; /* Tamaño del icono */
->>>>>>> parent of 7533f35 (andy caremonda)
         color: var(--color-secundario-claro-1);
         margin: 0 32px;
     }
@@ -150,7 +102,6 @@ header {
         color: var(--color-secundario-claro-2);
     }
 
-<<<<<<< HEAD
 /* Estilos para el encabezado */
     header {
         display: flex; /* Usa un contenedor flexible para alinear los elementos */
@@ -356,30 +307,3 @@ header {
     }
 
 
-=======
-
-
-/* Estilos para el contenido principal */
-main {
-    grid-area: M;
-}
-
-/* Estilos para el pie de página */
-footer {
-    grid-area: F;
-}
-
-.ContenedorGrid {
-    /* Grilla para el diseño de la web */
-    width: 100%;  
-    display: grid;
-    grid-gap: 1px;
-    grid-template-columns: repeat(4, 25%);
-    grid-template-rows: repeat(5, auto);
-    grid-template-areas: "N N N N"
-                         "H H H H" 
-                         "M M M M"
-                         "M M M M"
-                         "F F F F";  
-}
->>>>>>> parent of 7533f35 (andy caremonda)
