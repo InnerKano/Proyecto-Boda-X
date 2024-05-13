@@ -1,0 +1,81 @@
+/* Estilos generales */
+* {
+    font-family: "Merriweather", serif;
+    color: var(--color-neutro-oscuro);
+  }
+  
+  link[rel="icon"] {
+    border-radius: 50%; /* Hace que el borde sea redondeado */
+  }
+  html{
+    max-width: 500px;
+    max-height: 500px;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-neutro-claro);
+  }
+  
+  aside{
+    padding: 32px;
+    overflow: hidden; /* Oculta las barras de desplazamiento */;
+  }
+
+
+
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+
+.register-container h2 {
+  text-align: center;
+}
+.register-container .negro{
+  color: var(--color-neutro-oscuro);
+}
+.register-container .rojo{
+  color: var(--color-primario-oscuro-1);
+}
+  
+  
+.remember-check-user{
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.register-container button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: var(--color-primario-oscuro-1);;
+  color: var(--color-neutro-claro);;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.register-container button:hover {
+  background-color: var(--color-secundario-claro-1);
+}
+
+.login {
+  text-align: center;
+  margin-top: 15px;
+  margin: 10px 0;
+}
+
+.login a {
+  color: var(--color-secundario-claro-1);
+  text-decoration: none;
+}

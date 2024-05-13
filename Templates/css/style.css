@@ -287,7 +287,7 @@
 
 
 /* Estilo para el inicio de sesion */
-    #login-form {
+    #login-form, #register-form{
         overflow: hidden; /* Oculta las barras de desplazamiento */
         position: fixed;
         top: 81px;
@@ -304,6 +304,7 @@
         width: 400px; /* Ancho del elemento al 100% del contenedor */
         height: 100%; /* Altura del elemento al 100% del contenedor */
         overflow: hidden; /* Oculta las barras de desplazamiento */
+        background-color: var(--color-neutro-claro);
     }
 
 
