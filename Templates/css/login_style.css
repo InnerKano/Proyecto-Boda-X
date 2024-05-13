@@ -1,0 +1,105 @@
+body{
+    background-color: #f3c1c1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color: #c98383;
+    padding: 10px 0;
+    display: flex;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+}
+
+nav ul label a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    font-size: large;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+nav ul label a:hover{
+    background-color: #f3c1c1;
+    color: #c98383;
+}
+
+nav ul label a:active{
+    background-color: #f3c1c1;
+    color: #c98383;
+}
+
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.login_box{
+    background-color: white;
+    font-weight: bold;
+    padding: 5vw;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+    
+    margin: 10% auto;
+}
+
+.login_box h1{
+    font-size: 2vw; /* Ajusta este valor según tus necesidades */
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+.former{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main form input{
+    width: 100%;
+    padding: 1vw; /* Ajusta este valor según tus necesidades */
+    margin: 1vw 0; /* Ajusta este valor según tus necesidades */
+    border: 1px solid #c98383;
+    border-radius: 5px;
+    font-size: 1.5vw; /* Ajusta este valor según tus necesidades */
+}
+
+main form label{
+    font-size: 1.5vw; /* Ajusta este valor según tus necesidades */
+}
+
+main form input[type="submit"]{
+    background-color: #c98383;
+    color: white;
+    font-size: 1.5vw; /* Ajusta este valor según tus necesidades */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+main form input[type="submit"]:hover{
+    background-color: #f3c1c1;
+    color: #c98383;
+}
+
+footer{
+    background-color: #c98383;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    font-size: medium;
+}
