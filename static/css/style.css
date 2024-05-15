@@ -58,7 +58,7 @@
         text-decoration: none;
     }
     .logo {
-        background-image: url('/Templates/images/icon/logo_boda.png');
+        background-image: url('../images/icon/logo_boda.png');
         background-size: contain;
         background-position: center;
         border-radius: 100%; /* Hace que el contenedor sea redondo */

@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Busca el elemento 'login-form' en el documento y lo guarda en la variable 'aside'.
         const aside = document.getElementById('login-form');
         // Reemplaza el contenido del elemento 'aside' con el formulario de inicio de sesión cargado desde el archivo 'iniciosesion.html'.
-        aside.innerHTML = '<object class="aside-object" type="text/html" data="./Templates/views/iniciosesion.html"></object>';
-
+        aside.innerHTML = '<object class="aside-object" type="text/html" data="../../../Templates/views/iniciosesion.html"></object>';
         logincharged();/* Activa esta funcion cuando ya cargo la pantalla login */
     }
 
