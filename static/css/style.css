@@ -66,9 +66,7 @@
         height: 80px;
         margin-right: 5px;
     }
-    .logo-text{
 
-    }
 
     .nav-container {
         display: flex;
@@ -141,9 +139,7 @@
             margin-block-end: 1em;
         }
         /* SEARCH BAR */
-        .search-container {
-            
-        }
+
 
         .search-container input[type="text"] {
             box-shadow: 0 2px 8px #00000026;
