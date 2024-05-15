@@ -13,7 +13,7 @@ mysql = MySQL()
 
 @app.route('/')
 def index():
-    return render_template('Pruebas.html')
+    return render_template('views/registrarusuario.html')
     
 if __name__ == '__main__':
     app.run(port = 3000, debug = True)
