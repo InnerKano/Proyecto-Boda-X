@@ -22,7 +22,7 @@ def add_contact():
         contrasena = request.form['contrasena']
         ubicacion = request.form['ubicacion']
         cur = mysql.connection.cursor()
-        cur.execute('INSERT INTO usuario (nombre,apellido,telefono,email,contrasena,ubicacion) VALUES (%s, %s, %s, %s, %s,%s)', (nombre,apellido,email,contrasena,telefono,ubicacion))
+        cur.execute('INSERT INTO usuario (nombre,apellido,email,contrasena,telefono,ubicacion) VALUES (%s, %s, %s, %s, %s,%s)', (nombre,apellido,email,contrasena,telefono,ubicacion))
         mysql.connection.commit()
         return render_template ('iniciosesion.html')
     
