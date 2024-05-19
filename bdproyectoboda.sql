@@ -9,9 +9,12 @@
 CREATE TABLE IF NOT EXISTS `Usuario` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `contrasena` VARCHAR(45) NOT NULL,
-  `apellido` VARCHAR(45) NOT NULL,
+  `telefono` VARCHAR(45) NOT NULL,
+  `ubicacion` VARCHAR(45) NOT NULL,
+  
   PRIMARY KEY (`ID`)
 );
 

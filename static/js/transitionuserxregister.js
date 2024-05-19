@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
     // Agregar un controlador de eventos a todos los enlaces con la clase "page-transition"
     var pageLinks = document.querySelectorAll('.page-transition');
     pageLinks.forEach(function(link) {
@@ -12,4 +12,4 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 200); // Espera 500 milisegundos (medio segundo) antes de redirigir
         });
     });
-});
+});*/
