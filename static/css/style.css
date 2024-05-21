@@ -9,6 +9,9 @@
     link[rel="icon"] {
         border-radius: 50%; /* Hace que el borde sea redondeado */
     }
+    html{
+        min-width: 100%;
+    }
 
     body {
         margin: 0;
@@ -283,7 +286,7 @@
 
 
 /* Estilo para el inicio de sesion */
-    #login-form, #register-form{
+    #login-form-asideindex{
         overflow: hidden; /* Oculta las barras de desplazamiento */
         position: fixed;
         top: 81px;
@@ -293,6 +296,9 @@
         z-index: 1000;
         transition: right 0.5s ease; /* Animación de transición */
         border-left: 0.5px solid #d9d9d9;
+
+        padding: 0px;
+        margin: 0px;
     }
     .aside-object {
         padding: 0px;

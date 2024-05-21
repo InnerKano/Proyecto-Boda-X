@@ -24,7 +24,8 @@ def add_contact():
         cur = mysql.connection.cursor()
         cur.execute('INSERT INTO usuario (nombre,apellido,email,contrasena,telefono,ubicacion) VALUES (%s, %s, %s, %s, %s,%s)', (nombre,apellido,email,contrasena,telefono,ubicacion))
         mysql.connection.commit()
-        return render_template ('iniciosesion.html')
+        return 'registro de sesión exitoso'
+        """ return render_template ('iniciosesion.html') """
     
 @app.route('/login', methods=['POST'])
 def login():
@@ -42,5 +43,23 @@ def login():
         # Inicio de sesión fallido
         return 'Inicio de sesión fallido'
     
+@app.route('/miboda')
+def miboda():
+    return render_template('mi_boda.html')
+
+@app.route('/acercade')
+def acercade():
+    return render_template('acerca_de.html')
+
+""" pruebas """
+@app.route('/iniciosesion')
+def iniciosesion():
+    return render_template('iniciosesion.html')
+
+@app.route('/registrarusuario')
+def registrarusuario():
+    return render_template('registrarusuario.html')
+
 if __name__ == '__main__':
     app.run(port = 3000, debug = True)
+

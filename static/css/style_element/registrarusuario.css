@@ -18,10 +18,19 @@
   }
   
   aside{
+    /* CONTENIDO HTML */
+    max-width: 400px;
+    max-height: 100%;
+    /* CONTENIDO BODY */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-neutro-claro);
+  
+    /* CONTENIDO ASIDE */
     padding: 32px;
     overflow: hidden; /* Oculta las barras de desplazamiento */;
+  
   }
-
 
 
 
@@ -58,8 +67,8 @@
   width: 100%;
   padding: 10px;
   border: none;
-  background-color: var(--color-primario-oscuro-1);;
-  color: var(--color-neutro-claro);;
+  background-color: var(--color-primario-oscuro-1);
+  color: var(--color-neutro-claro);
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.5s;
@@ -79,3 +88,5 @@
   color: var(--color-secundario-claro-1);
   text-decoration: none;
 }
+
+
