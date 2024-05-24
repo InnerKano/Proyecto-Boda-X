@@ -1,0 +1,96 @@
+
+/* CARD PRUEBA */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    grid-gap: 1.5rem;
+}
+.cards-container-up {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+}
+.cards-container-down{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+
+}
+.card {
+
+}
+
+
+/* CARD HORIZONTAL */
+.card-horizontal {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 2px 8px #00000026;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-radius: 20px;
+    
+
+}
+
+
+.card-horizontal img{
+    max-width: 50%;
+    height: 100%;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.card-info {
+    padding: 1rem;
+    text-align: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;
+
+}
+
+/* .card-info h2 {
+    margin-bottom: auto;
+}
+
+.card-info p {
+    margin-bottom: auto;
+} */
+
+.card-button {
+    background-color: pink;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+/* CARD VERTICAL */
+.card-vertical {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px #00000026;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-radius: 20px;
+    
+    min-height: 300px;
+    max-width: 300px;
+    max-height: 400px;
+}
+
+.card-vertical img{
+    max-width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 0px 0px;
+}

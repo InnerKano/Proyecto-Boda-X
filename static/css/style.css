@@ -9,6 +9,9 @@
     link[rel="icon"] {
         border-radius: 50%; /* Hace que el borde sea redondeado */
     }
+    html{
+        min-width: 100%;
+    }
 
     body {
         margin: 0;
@@ -101,7 +104,10 @@
     }
 
 /* Estilos para el encabezado */
-    header {
+    /* Espacio para el header */
+
+
+    .header-home{
         display: flex; /* Usa un contenedor flexible para alinear los elementos */
         justify-content: space-between; /* Distribuye los elementos a lo largo del eje principal (horizontalmente) */
         align-items: center; /* Centra verticalmente los elementos */
@@ -110,6 +116,10 @@
         margin: 0;
         height: 25%; /* Altura del encabezado */
         border-bottom: 0.5px solid #d9d9d9;
+
+    }
+    /* ESPACIO PARA EL NAV tiene que despues de los estilos del header*/
+    .espacio-nav{
         /* ESPACIO PARA EL NAV */
         padding-top: 80px;
     }
@@ -216,74 +226,8 @@
 
 
 
-/* CARD PRUEBA */
-    .cards-container {
-        display: flex;
-        flex-direction: column;
-        padding: 32px;
-        grid-gap: 1.5rem;
-    }
-    .cards-container-up {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 1.5rem;
-    }
-    .cards-container-down{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 1.5rem;
-
-    }
-    .card {
-        display: flex;
-        flex-direction: row;
-        box-shadow: 0 2px 8px #00000026;
-        padding: 0px;
-        margin: 0px;
-        border: 0px;
-        border-radius: 20px;
-        /* FALTA BORDER RADIUS */
-    }
-
-    .card img {
-        max-width: 50%;
-        height: 100%;
-        margin-bottom: 1rem;
-        border-radius: 20px 0px 0px 20px;
-    }
-
-    .card-info {
-        padding: 1rem;
-        flex-grow: 1;
-        text-align: center;
-        align-self: center;
-
-    }
-
-    .card-info h2 {
-        margin-bottom: 0.5rem;
-    }
-
-    .card-info p {
-        margin-bottom: 1rem;
-    }
-
-    .card-button {
-        background-color: pink;
-        border: none;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        align-self: flex-end;
-    }
-
-
 /* Estilo para el inicio de sesion */
-    #login-form, #register-form{
+    #login-form-asideindex{
         overflow: hidden; /* Oculta las barras de desplazamiento */
         position: fixed;
         top: 81px;
@@ -293,6 +237,9 @@
         z-index: 1000;
         transition: right 0.5s ease; /* Animación de transición */
         border-left: 0.5px solid #d9d9d9;
+
+        padding: 0px;
+        margin: 0px;
     }
     .aside-object {
         padding: 0px;

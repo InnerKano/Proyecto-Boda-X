@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro de Usuario - Boda Fácil</title>
+        <!-- Enlaces a tus archivos CSS -->
+        <link href="../static/css/font.css" rel="stylesheet">
+        <link href="../static/css/style_element/iniciosesion.css" rel="stylesheet">
+        <link href="../static/css/style_element/registrarusuario.css" rel="stylesheet">
+        <link href="../static/css/colors.css" rel="stylesheet">
+    </head>
+    <body>
+        <aside id="register-form">
+            <!-- Contenido del formulario de registro de usuario -->
+            <div class="register-container text-h3">
+                <h2 class="text-h2 negro">Regístrate en</h2>
+                <h2 class="text-h2 rojo">Boda Fácil</h2>
+                
+                <form action="/add_contact" method="POST">
+                    
+                    <input type="text" placeholder="nombre" name="nombre">
+                    <input type="text" placeholder="Apellido" name="apellido">
+                    <input type="text" placeholder="Correo electrónico" name="email">
+                    <input type="password"  placeholder="Contraseña" name="contrasena">
+                    <input type="text"  placeholder="Telefono" name="telefono">
+                    <input type="text"  placeholder="Ubicacion" name="ubicacion">
+
+                    <button class="text-h3" type="submit">Registrar</button>
+                    <!-- <button class="text-h3" id="login-button" type="submit">Registrar</button> -->
+                </form>
+                <div class="text-body login">
+                    ¿Ya tienes una cuenta? 
+                    <a id="login-a" href="">Inicia Sesion</a>
+                </div>
+            </div>
+        </aside>
+
+
+        <!-- CARGAR SCRIPTS -->
+        <script src="../static/js/transitionuserxregister.js"></script>
+    </body>
+</html>
