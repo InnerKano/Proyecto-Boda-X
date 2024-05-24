@@ -1,0 +1,65 @@
+/* Estilos generales */
+.main-catalogo{
+    padding: 32px;
+}
+/* ESTILOS PARA el menu aside */
+.catalogo-servicios{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+}
+
+.menu-catalogo{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    padding-right: 32px;
+    align-items: center;
+}
+
+.menu-catalogo button {
+    display: flex;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    background: none;
+}
+
+.menu-catalogo-seccion a {
+    display: flex;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-catalogo-seccion{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ESTILOS los productos */
+.contenedor-catalogo{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+
+.productos-seccion{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1.5rem;
+    width: 100%;
+    height: auto;
+}
