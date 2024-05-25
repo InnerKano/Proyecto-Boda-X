@@ -1,21 +1,69 @@
 /* Estilos generales */
-.main-catalogo{
-    padding: 32px;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita el desplazamiento en el cuerpo */
 }
-/* ESTILOS PARA el menu aside */
-.catalogo-servicios{
+
+.main-catalogo {
+    padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.catalogo-servicios {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
-.menu-catalogo{
+.menu-catalogo {
     display: flex;
     flex-direction: column;
     width: 10%;
-    padding-right: 32px;
     align-items: center;
+    position: fixed;
+    height: 90%; /* Asegura que ocupe toda la altura de la pantalla */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+/* Estilos barra deslizable aside */
+/* Estilos para la barra de desplazamiento en navegadores WebKit (Chrome, Safari) */
+.menu-catalogo::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+.menu-catalogo::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Color del fondo de la barra de desplazamiento */
+    border-radius: 10px; /* Bordes redondeados del fondo de la barra */
+}
+
+.menu-catalogo::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5); /* Color de la barra de desplazamiento */
+    border-radius: 10px; /* Bordes redondeados de la barra */
+    border: 3px solid rgba(255, 255, 255, 0.3); /* Borde alrededor de la barra, dando un efecto de separación */
+}
+
+.menu-catalogo::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.7); /* Color de la barra de desplazamiento al pasar el mouse por encima */
+}
+
+/* Estilos para la barra de desplazamiento en Firefox */
+.menu-catalogo {
+    scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
+    scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1); /* Color de la barra de desplazamiento y del fondo */
+}
+
+.espacio-menu-catalogo {
+    padding-left: calc(10% + 32px);
+    height: 100%;
+    width: 100%;
 }
 
 .menu-catalogo button {
@@ -41,7 +89,7 @@
     justify-content: center;
 }
 
-.menu-catalogo-seccion{
+.menu-catalogo-seccion {
     display: flex;
     flex-direction: column;
     margin: 0px;
@@ -49,17 +97,22 @@
 }
 
 /* ESTILOS los productos */
-.contenedor-catalogo{
+.contenedor-catalogo {
+    padding-bottom: 32px;
+    padding-right: 32px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 90%;
+    height: auto; /* Asegura que ocupe toda la altura de la pantalla */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
 }
 
-
-.productos-seccion{
+.productos-seccion {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 1.5rem;
     width: 100%;
-    height: auto;
+    height: 90%;
 }
