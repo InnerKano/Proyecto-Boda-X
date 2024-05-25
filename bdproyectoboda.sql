@@ -19,26 +19,13 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
 );
 
 /* ---------------------------------------------------------------------- */
-/* Add table "Invitados"                                               */
-/* ---------------------------------------------------------------------- */
-
-CREATE TABLE IF NOT EXISTS `Invitados` (
-  `Usuario_ID` INT NOT NULL,
-  `nombre_inv` VARCHAR(45) NOT NULL,
-  `apellido_inv` VARCHAR(45) NOT NULL,
-  FOREIGN KEY (`Usuario_ID`) REFERENCES `Usuario` (`ID`)
-);
-
-/* ---------------------------------------------------------------------- */
 /* Add table "Servicios"                                               */
 /* ---------------------------------------------------------------------- */
 
 
 CREATE TABLE IF NOT EXISTS `Servicios` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
+  `ID` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
-  `descripcion` VARCHAR(100) NOT NULL,
-  `anadirlo` TINYINT NOT NULL,
   PRIMARY KEY (`ID`)
 );
 
@@ -47,11 +34,13 @@ CREATE TABLE IF NOT EXISTS `Servicios` (
 /* ---------------------------------------------------------------------- */
 
 CREATE TABLE IF NOT EXISTS `OpcionesServicios` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
+  `ID` INT NOT NULL,
+  `descripcion` VARCHAR(100) NOT NULL,
   `opcion_nombre` VARCHAR(45) NOT NULL,
   `precio` INT NOT NULL,
   `Servicios_ID` INT NOT NULL,
   PRIMARY KEY (`ID`),
+  PRIMARY KEY (`precio`),
   FOREIGN KEY (`Servicios_ID`) REFERENCES `Servicios` (`ID`)
 );
 
@@ -62,12 +51,9 @@ CREATE TABLE IF NOT EXISTS `OpcionesServicios` (
 /* ---------------------------------------------------------------------- */
 
 CREATE TABLE IF NOT EXISTS `Carrito` (
-  `Carrito_ID` INT NOT NULL AUTO_INCREMENT,
-  `Costo_Total` INT NOT NULL,
   `Usuario_ID` INT NOT NULL,
   `Servicios_ID` INT NOT NULL,
   `OpcionesServicios_ID` INT NOT NULL,
-  PRIMARY KEY (`Carrito_ID`),
   FOREIGN KEY (`Usuario_ID`) REFERENCES `Usuario` (`ID`),
   FOREIGN KEY (`Servicios_ID`) REFERENCES `Servicios` (`ID`),
   FOREIGN KEY (`OpcionesServicios_ID`) REFERENCES `OpcionesServicios` (`ID`)
