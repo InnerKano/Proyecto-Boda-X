@@ -233,6 +233,7 @@
         top: 81px;
         right: -400px; /* Posición inicial fuera de la pantalla */
         width: auto; /* El ancho se ajustará automáticamente al contenido */
+        max-width: 400px; /* El ancho se ajustará automáticamente al contenido */
         height: 100%;
         z-index: 1000;
         transition: right 0.5s ease; /* Animación de transición */
