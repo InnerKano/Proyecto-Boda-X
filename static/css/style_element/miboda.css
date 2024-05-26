@@ -30,6 +30,7 @@ html, body {
     height: 90%; /* Asegura que ocupe toda la altura de la pantalla */
     overflow-y: auto; /* Permite el desplazamiento vertical */
     overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    
 }
 
 /* Estilos barra deslizable aside */
@@ -56,7 +57,7 @@ html, body {
 /* Estilos para la barra de desplazamiento en Firefox */
 .menu-catalogo {
     scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
-    scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1); /* Color de la barra de desplazamiento y del fondo */
+    scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.1); /* Color de la barra de desplazamiento y del fondo */
 }
 
 .espacio-menu-catalogo {
@@ -114,5 +115,20 @@ html, body {
 }
 
 .selected {
-    border: 2px solid #000; /* Cambia el estilo según tus necesidades */
+    border: 2px solid var(--color-secundario-claro-1); /* Cambia el estilo según tus necesidades */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    
 }
+
+.cards-main-title {
+    text-align: center;
+    border-top: 1px solid #d1d1d1;
+    padding: 15px;
+}
+
+.main-title {
+    color: var(--color-neutro-oscuro);
+    text-align: center;
+   
+}
+
