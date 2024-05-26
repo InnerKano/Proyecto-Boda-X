@@ -40,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `OpcionesServicios` (
   `precio` INT NOT NULL,
   `Servicios_ID` INT NOT NULL,
   PRIMARY KEY (`ID`),
-  PRIMARY KEY (`precio`),
   FOREIGN KEY (`Servicios_ID`) REFERENCES `Servicios` (`ID`)
 );
 
