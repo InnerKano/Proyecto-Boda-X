@@ -63,7 +63,7 @@
 } */
 
 .card-button {
-    background-color: pink;
+    background-color: var(--color-primario);
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -72,6 +72,11 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 20px;
+}
+
+.card-button:hover {
+    background-color: var(--color-primario-oscuro-1);
+    transition-duration: 0.2s;
 }
 
 /* CARD VERTICAL */
@@ -94,3 +99,6 @@
     height: 100%;
     border-radius: 20px 20px 0px 0px;
 }
+
+
+

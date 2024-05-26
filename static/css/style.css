@@ -16,7 +16,7 @@
     body {
         margin: 0;
         padding: 0;
-        background-color: var(--color-neutro-claro);
+        background-color: var(--color-fondo-claro);
     }
 
 
@@ -95,8 +95,8 @@
     }
     /* Estilos iconos */
     .nav-icons a i {
-        font-size: 24px; /* Tamaño del icono */
-        color: var(--color-secundario-claro-1);
+        font-size: 20px; /* Tamaño del icono */
+        color: var(--color-secundario-claro-3);
         margin: 0 32px;
     }
     .nav-icons a i:hover {
@@ -142,7 +142,7 @@
             align-items: flex-start;
         }
         .text-header h1{
-            color: var(--color-primario-oscuro-4)
+            color: var(--color-primario-oscuro-1);
         }
         .text-header p{
             margin-block-start: 1em;
@@ -250,4 +250,26 @@
         background-color: var(--color-neutro-claro);
     }
 
+/* Hover para los Nav Links*/
 
+.nav-link-1,
+.nav-link-2 {
+
+    border-bottom: 2px solid transparent;
+    /* Initial border color */
+    transition: color 0.3s, border-bottom-color 0.3s;
+    /* Smooth transition */
+}
+
+.nav-link-1:hover {
+    border-bottom: 2px solid var(--color-secundario-claro-1);
+    color: var(--color-secundario-claro-1);
+}
+
+.nav-link-2:hover {
+    
+    border-bottom: 2px solid var(--color-secundario-claro-1);
+    
+    color: #957DAD;
+    
+}
