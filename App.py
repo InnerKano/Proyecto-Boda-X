@@ -60,6 +60,12 @@ def iniciosesion():
 def registrarusuario():
     return render_template('registrarusuario.html')
 
+@app.route('/carrito')
+def carrito():
+    return render_template('carrito.html')
+
+
+
 if __name__ == '__main__':
     app.run(port = 3000, debug = True)
 

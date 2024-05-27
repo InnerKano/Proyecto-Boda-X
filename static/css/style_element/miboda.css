@@ -132,3 +132,23 @@ html, body {
    
 }
 
+.container-carrito-botton a i{
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+}
+.container-carrito-botton a i{
+    font-size: 32px;
+    padding: 16px;
+    color: var(--color-neutro-claro);
+    background-color: var(--color-secundario-claro-2);
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.container-carrito-botton a i:hover {
+    font-size: 36px;
+    background-color: var(--color-secundario);
+    transition: 0.3s;
+}

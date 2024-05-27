@@ -114,26 +114,32 @@
                 </div>
             </aside>
             
+            <div class="container-carrito-botton">
+                <a class="text-h3" href="/carrito" onclick="moveToCart()" title="Go to Cart">
+                    <!-- icono carrito de Font Awesome -->
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
 
-              <!-- 
-              Este archivo HTML define la estructura del catálogo de productos.
-              Cada sección representa una categoría de productos, como "Anillo de boda" o "Carro de matrimonio".
-              Dentro de cada sección, se definen múltiples tarjetas de productos con su información correspondiente.
+            <!-- 
+            Este archivo HTML define la estructura del catálogo de productos.
+            Cada sección representa una categoría de productos, como "Anillo de boda" o "Carro de matrimonio".
+            Dentro de cada sección, se definen múltiples tarjetas de productos con su información correspondiente.
 
-              Atributos utilizados:
-              - data-section: identifica la categoría de productos.
-              - data-product-id: especifica el ID único del producto dentro de su sección.
-              - data-selected="false": indica si la tarjeta del producto está seleccionada o no. con valores false o true
+            Atributos utilizados:
+            - id="" data-section: identifica la categoría de productos.
+            - data-product-id: especifica el ID único del producto dentro de su sección.
+            - data-selected="false": indica si la tarjeta del producto está seleccionada o no. con valores false o true
 
-              La función toggleCard se utiliza para manejar la selección de productos. Cuando se hace clic en un botón "Ver más info",
-              la tarjeta del producto correspondiente se marca como seleccionada y las demás tarjetas dentro de la misma sección
-              se desmarcan.
-              -->
+            La función toggleCard se utiliza para manejar la selección de productos. Cuando se hace clic en un botón "Ver más info",
+            la tarjeta del producto correspondiente se marca como seleccionada y las demás tarjetas dentro de la misma sección
+            se desmarcan.
+            -->
             <div class="espacio-menu-catalogo contenedor-catalogo">
                 <h2 class="main-title">PRODUCTOS PARA TU BODA</h2>
                 <div id="boda-ceremonia" class="service">
                     <h2 class="cards-main-title">Boda/Ceremonia</h2>
-                    <div class="section" data-section="boda-ceremonia-anillo-de-boda">
+                    <div class="section" id="boda-ceremonia-anillo-de-boda" data-section="boda-ceremonia-anillo-de-boda">
                       <h3>Anillo de boda</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -183,7 +189,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="boda-ceremonia-carro-de-matrimonio">
+                    <div class="section" id="boda-ceremonia-carro-de-matrimonio" data-section="boda-ceremonia-carro-de-matrimonio">
                         <h3>Carro de matrimonio</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -233,7 +239,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="boda-ceremonia-catering-banquete">
+                    <div class="section" id="boda-ceremonia-catering-banquete" data-section="boda-ceremonia-catering-banquete">
                         <h3>Catering y banquete</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -283,7 +289,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="boda-ceremonia-decoracion-de-mesa">
+                    <div class="section" id="boda-ceremonia-decoracion-de-mesa" data-section="boda-ceremonia-decoracion-de-mesa">
                         <h3>Decoración de mesa</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -333,7 +339,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="boda-ceremonia-lugar">
+                    <div class="section" id="boda-ceremonia-lugar" data-section="boda-ceremonia-lugar">
                         <h3>Lugar ceremonia</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -383,7 +389,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="boda-ceremonia-mesa-de-regalos">
+                    <div class="section" id="boda-ceremonia-mesa-de-regalos" data-section="boda-ceremonia-mesa-de-regalos">
                         <h3>Mesa de regalos</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -433,7 +439,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="boda-ceremonia-musica">
+                    <div class="section" id="boda-ceremonia-musica" data-section="boda-ceremonia-musica">
                         <h3>Música</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -483,7 +489,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="boda-ceremonia-pastel">
+                    <div class="section" id="boda-ceremonia-pastel" data-section="boda-ceremonia-pastel">
                         <h3>Pastel de boda</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -533,7 +539,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="boda-ceremonia-sesion-fotografica">
+                    <div class="section" id="boda-ceremonia-sesion-fotografica" data-section="boda-ceremonia-sesion-fotografica">
                         <h3>Sesión fotográfica</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -583,7 +589,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="boda-ceremonia-invitaciones">
+                    <div class="section" id="boda-ceremonia-invitaciones" data-section="boda-ceremonia-invitaciones">
                         <h3>Tipo de invitaciones</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -634,9 +640,10 @@
                       </div>
                     </div>
                 </div>
+
                 <div id="luna-de-miel" class="service">
                     <h2 class="cards-main-title">Luna de Miel</h2>
-                    <div class="section" data-section="luna-de-miel-isla-maldivas">
+                    <div class="section" id="luna-de-miel-isla-maldivas" data-section="luna-de-miel-isla-maldivas">
                         <h3>Isla Maldivas</h3>
                         <h4>Hospedaje</h4>
                       <div class="productos-seccion">
@@ -687,7 +694,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="luna-de-miel-marruecos">
+                    <div class="section" id="luna-de-miel-marruecos" data-section="luna-de-miel-marruecos">
                         <h3>Marruecos</h3>
                         <h4>Hospedaje</h4>
                       <div class="productos-seccion">
@@ -738,7 +745,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="luna-de-miel-mykonos">
+                    <div class="section" id="luna-de-miel-mykonos" data-section="luna-de-miel-mykonos">
                         <h3>Mykonos</h3>
                         <h4>Hospedaje</h4>
                       <div class="productos-seccion">
@@ -789,7 +796,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="luna-de-miel-santorini">
+                    <div class="section" id="luna-de-miel-santorini" data-section="luna-de-miel-santorini">
                         <h3>Santorini</h3>
                         <h4>Hospedaje</h4>
                       <div class="productos-seccion">
@@ -840,7 +847,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="luna-de-miel-venecia">
+                    <div class="section" id="luna-de-miel-venecia" data-section="luna-de-miel-venecia">
                         <h3>Venecia</h3>
                         <h4>Hospedaje</h4>
                       <div class="productos-seccion">
@@ -895,7 +902,7 @@
                 
                 <div id="novia" class="service">
                     <h2 class="cards-main-title">Novia</h2>
-                    <div class="section" data-section="novia-flores">
+                    <div class="section" id="novia-flores" data-section="novia-flores">
                         <h3>Flores</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -945,7 +952,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="novia-joyeria">
+                    <div class="section" id="novia-joyeria" data-section="novia-joyeria">
                         <h3>Joyería</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -995,7 +1002,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="novia-peinados">
+                    <div class="section" id="novia-peinados" data-section="novia-peinados">
                         <h3>Peinados</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -1045,7 +1052,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="novia-vestido-de-fiesta">
+                    <div class="section" id="novia-vestido-de-fiesta" data-section="novia-vestido-de-fiesta">
                         <h3>Vestido de fiesta</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -1095,7 +1102,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="novia-vestido-de-novia">
+                    <div class="section" id="novia-vestido-de-novia" data-section="novia-vestido-de-novia">
                         <h3>Vestido de novia</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -1149,7 +1156,7 @@
                 
                 <div id="novio" class="service">
                     <h2 class="cards-main-title">Novio</h2>
-                    <div class="section" data-section="novio-accesorios">
+                    <div class="section" id="novio-accesorios" data-section="novio-accesorios">
                         <h3>Accesorios</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -1199,7 +1206,7 @@
                           </div>
                       </div>
                     </div>
-                    <div class="section" data-section="novio-traje-de-novio">
+                    <div class="section" id="novio-traje-de-novio" data-section="novio-traje-de-novio">
                         <h3>Traje de Novio</h3>
                       <div class="productos-seccion">
                           <div class="card-vertical" data-selected="false">
@@ -1250,14 +1257,14 @@
                       </div>
                     </div>
                 </div>
-                
-
-
+            </div>
+        </div>         
     </main>
     
 
     <!-- CARGAR SCRIPTS -->
     <script src="../static/js/asideuser.js"></script>
     <script src="../static/js/user/selectproduct.js"></script>
+
 </body>
 </html>
