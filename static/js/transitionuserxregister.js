@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("Transition User x Register");
+    /* console.log("Transition User x Register"); */
     // Agregar un controlador de eventos a todos los enlaces con la clase "page-transition"
     var pageLinks = document.querySelectorAll('.page-transition');
     pageLinks.forEach(function(link) {
