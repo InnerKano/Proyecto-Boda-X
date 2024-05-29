@@ -1,0 +1,39 @@
+/* Estilos generales */
+* {
+    font-family: "Merriweather", serif;
+    color: var(--color-neutro-oscuro);
+  }
+  
+    .user-info {
+        /* CONTENIDO HTML */
+        max-width: 400px;
+        height: 100%;
+        /* CONTENIDO BODY */
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-neutro-claro);
+    
+        /* CONTENIDO ASIDE */
+        padding: 32px;
+        overflow: hidden; /* Oculta las barras de desplazamiento */;
+    
+    }
+
+    .user-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .user-container h2 {
+        text-align: center;
+    }
+    .user-container .negro{
+        color: var(--color-neutro-oscuro);
+    }
+    .user-container .rojo{
+        color: var(--color-primario-oscuro-1);
+    }

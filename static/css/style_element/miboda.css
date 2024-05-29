@@ -170,8 +170,9 @@ html, body {
     text-align: center;
    
 }
-
+/* Estilos pata el carrito */
 .container-carrito-botton a i{
+    z-index: 1000;
     position: fixed;
     bottom: 32px;
     right: 32px;

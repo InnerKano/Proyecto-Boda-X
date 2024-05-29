@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect, session,jsonify, make_response
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify, make_response
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
+
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
@@ -11,7 +13,7 @@ mysql = MySQL(app)
 @app.route('/')
 def index():
     return render_template('index.html')
-
+    
 
 @app.route('/add_contact', methods=['POST'])
 def add_contact():
@@ -38,11 +40,47 @@ def login():
     cur.execute('SELECT * FROM usuario WHERE email = %s AND contrasena = %s', (email, contrasena))
     user = cur.fetchone()
     cur.close()
-    # Return a minimal response
-    return make_response('', 204)
-
-
+    if user:
+        session['loggedin'] = True
+        session['id'] = user[0]
+        session['email'] = user[3]
+        return jsonify({'success': True})
+    else:
+        return jsonify({'success': False, 'message': 'Login failed'})
     
+@app.route('/logout')
+def logout():
+    """
+    Ruta para cerrar la sesión del usuario.
+    Elimina la información de sesión.
+    """
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('email', None)
+    return redirect(url_for('index'))
+
+@app.route('/usuario')
+def usuario():
+    if 'loggedin' in session:
+        user_id = session['id']
+        cur = mysql.connection.cursor()
+        cur.execute('SELECT * FROM usuario WHERE id = %s', (user_id,))
+        user = cur.fetchone()
+        cur.close()
+        return render_template('usuario.html', user=user)
+    return jsonify({'success': False, 'message': 'User not logged in'})
+    
+@app.route('/check_login_status')
+def check_login_status():
+    """
+    Ruta para verificar el estado de inicio de sesión del usuario.
+    Devuelve el estado de autenticación del usuario.
+    """
+    if 'loggedin' in session:
+        return jsonify({'loggedin': True})
+    else:
+        return jsonify({'loggedin': False})
+
 @app.route('/miboda')
 def miboda():
     cur = mysql.connection.cursor()
@@ -155,9 +193,6 @@ def acercade():
 def iniciosesion():
     return render_template('iniciosesion.html')
 
-@app.route('/usuario')
-def usuario():
-    return render_template('usuario.html')
 
 @app.route('/registrarusuario')
 def registrarusuario():
