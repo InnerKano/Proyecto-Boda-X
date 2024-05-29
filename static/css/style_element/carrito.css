@@ -6,16 +6,32 @@
     padding: 32px;
     justify-items: center;
 }
+
 .main-title{
     text-align: center;
     font-size: 2rem;
     margin-bottom: 1rem;
-
-
 }
+
 .carroto-crud-botton{
     display: flex;
     justify-content: flex-end;
     padding-right: 32px;
 
+}
+
+/* CARD VERTICAL */
+.card-vertical {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px #00000026;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-radius: 20px;
+    
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
 }

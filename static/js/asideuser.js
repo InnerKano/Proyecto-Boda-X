@@ -54,6 +54,30 @@ document.addEventListener("DOMContentLoaded", function() {
                             .catch(error => console.log(error));
                     });
                 }
+
+                // Obtiene el botón con ID 'user-botton'.
+                const userButton = document.getElementById('user-button');
+                const loginForm = document.getElementById('login-formulario');
+                if (userButton) {
+                    
+                    // Agrega un evento de clic al botón 'user-button'.
+                    userButton.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        // activa el boton sudmit de iniciosesion.html para mandar los datos a la funcion login en app.py
+                        // Activar el envío del formulario
+                        loginForm.submit();
+                        // Cuando se hace clic en el botón 'user-button', hace una solicitud GET a la ruta '/usuario' en el servidor.
+                        fetch('/usuario')
+                            .then(response => response.text())
+                            .then(html => {
+                                // Establece el contenido HTML del elemento 'aside' al formulario de usuario.
+                                aside.innerHTML = html;
+
+                            })
+                            .catch(error => console.log(error));
+                    });
+                }
+
             })
             .catch(error => console.log(error));
     }

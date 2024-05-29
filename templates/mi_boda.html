@@ -139,1123 +139,448 @@
                 <h2 class="main-title">PRODUCTOS PARA TU BODA</h2>
                 <div id="boda-ceremonia" class="service">
                     <h2 class="cards-main-title">Boda/Ceremonia</h2>
+                    <!-- Sección Anillo de boda -->
                     <div class="section" id="boda-ceremonia-anillo-de-boda" data-section="boda-ceremonia-anillo-de-boda">
-                      <h3>Anillo de boda</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <h3>Anillo de boda</h3>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in anillo_de_boda %}
+                                {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->
+<!--                            <script>
+                                    console.log({{ contador_img }});
+                                </script> -->
+                                {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->
+                                <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Anillo de boda/Argolla ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    
+                    <!-- Sección Carro de matrimonio -->
                     <div class="section" id="boda-ceremonia-carro-de-matrimonio" data-section="boda-ceremonia-carro-de-matrimonio">
                         <h3>Carro de matrimonio</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in carro_de_matrimonio %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Carro de matrimonio/Carro ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- boda-ceremonia-catering-banquete -->
                     <div class="section" id="boda-ceremonia-catering-banquete" data-section="boda-ceremonia-catering-banquete">
                         <h3>Catering y banquete</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in catering_banquete %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Catering y banquete/Banquete/Cena ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+
+                    <!-- boda-ceremonia-decoracion-de-mesa -->
                     <div class="section" id="boda-ceremonia-decoracion-de-mesa" data-section="boda-ceremonia-decoracion-de-mesa">
                         <h3>Decoración de mesa</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in decoracion_mesa %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Decoracion ceremonia/Decoracion ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+
+                    <!-- boda-ceremonia-lugar -->
                     <div class="section" id="boda-ceremonia-lugar" data-section="boda-ceremonia-lugar">
                         <h3>Lugar ceremonia</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in lugar_ceremonia %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Lugar ceremonia/Lugar ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    
+                    <!-- boda-ceremonia-mesa-de-regalos -->
                     <div class="section" id="boda-ceremonia-mesa-de-regalos" data-section="boda-ceremonia-mesa-de-regalos">
                         <h3>Mesa de regalos</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in mesa_regalos %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Mesa de regalos/Mesa ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    
+                    <!-- Sección Música -->
                     <div class="section" id="boda-ceremonia-musica" data-section="boda-ceremonia-musica">
                         <h3>Música</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in musica %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Musica/Musica ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                    <div class="section" id="boda-ceremonia-pastel" data-section="boda-ceremonia-pastel">
+
+                    <!-- Sección Pastel de boda -->
+                    <div class="section" id="boda-ceremonia-pastel-de-boda" data-section="boda-ceremonia-pastel-de-boda">
                         <h3>Pastel de boda</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in pastel_boda %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Pastel de boda/Pastel ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+
+                    <!-- Sección Sesión fotográfica -->
                     <div class="section" id="boda-ceremonia-sesion-fotografica" data-section="boda-ceremonia-sesion-fotografica">
                         <h3>Sesión fotográfica</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in sesion_fotografica %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Sesion fotografica/Foto ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                    <div class="section" id="boda-ceremonia-invitaciones" data-section="boda-ceremonia-invitaciones">
-                        <h3>Tipo de invitaciones</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
-                    </div>
-                </div>
 
+                    <!-- Sección Tipo de invitaciones -->
+                    <div class="section" id="boda-ceremonia-tipo-de-invitaciones" data-section="boda-ceremonia-tipo-de-invitaciones">
+                        <h3>Tipo de invitaciones</h3>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in tipo_invitaciones %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Tipo de Invitaciones/Invitacion ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                
                 <div id="luna-de-miel" class="service">
                     <h2 class="cards-main-title">Luna de Miel</h2>
+                    <!-- Sección Isla Maldivas -->
                     <div class="section" id="luna-de-miel-isla-maldivas" data-section="luna-de-miel-isla-maldivas">
                         <h3>Isla Maldivas</h3>
-                        <h4>Hospedaje</h4>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in isla_maldivas %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Luna de miel/Destinos/Islas maldivas/Hospedaje ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- Sección Marruecos -->
                     <div class="section" id="luna-de-miel-marruecos" data-section="luna-de-miel-marruecos">
                         <h3>Marruecos</h3>
-                        <h4>Hospedaje</h4>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in marruecos %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Luna de miel/Destinos/Marruecos/Hospedaje ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- Sección Mykonos -->
                     <div class="section" id="luna-de-miel-mykonos" data-section="luna-de-miel-mykonos">
                         <h3>Mykonos</h3>
-                        <h4>Hospedaje</h4>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in mykonos %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Luna de miel/Destinos/Mykonos/Hospedaje ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- Sección Santorini -->
                     <div class="section" id="luna-de-miel-santorini" data-section="luna-de-miel-santorini">
                         <h3>Santorini</h3>
-                        <h4>Hospedaje</h4>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in santorini %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Luna de miel/Destinos/Santorini/Hospedaje ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- Sección Venecia -->
                     <div class="section" id="luna-de-miel-venecia" data-section="luna-de-miel-venecia">
                         <h3>Venecia</h3>
-                        <h4>Hospedaje</h4>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in venecia %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Luna de miel/Destinos/Venecia/Hospedaje ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
                 
                 <div id="novia" class="service">
                     <h2 class="cards-main-title">Novia</h2>
+                    <!-- Sección Flores -->
                     <div class="section" id="novia-flores" data-section="novia-flores">
                         <h3>Flores</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in flores_novia %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Novia/Flores/Flor ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- Sección Joyería -->
                     <div class="section" id="novia-joyeria" data-section="novia-joyeria">
                         <h3>Joyería</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in joyeria %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Novia/Joyeria/Joya ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- Sección Peinados -->
                     <div class="section" id="novia-peinados" data-section="novia-peinados">
                         <h3>Peinados</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in peinados %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Novia/Peinados/Peinado ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- Sección Vestido de fiesta -->
                     <div class="section" id="novia-vestido-de-fiesta" data-section="novia-vestido-de-fiesta">
                         <h3>Vestido de fiesta</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in vestido_fiesta %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Novia/Vestido de fiesta/Fiesta ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- Sección Vestido de novia -->
                     <div class="section" id="novia-vestido-de-novia" data-section="novia-vestido-de-novia">
                         <h3>Vestido de novia</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in vestido_novia %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Novia/Vestido de novia/Vestido ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
                 
                 <div id="novio" class="service">
                     <h2 class="cards-main-title">Novio</h2>
+                    <!-- Sección Accesorios -->
                     <div class="section" id="novio-accesorios" data-section="novio-accesorios">
                         <h3>Accesorios</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in accesorios_novio %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Novio/Accesorios/Accesorio ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    <!-- Sección Traje de Novio -->
                     <div class="section" id="novio-traje-de-novio" data-section="novio-traje-de-novio">
                         <h3>Traje de Novio</h3>
-                      <div class="productos-seccion">
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-1" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-1" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-1" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-1" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="1" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-2" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-2" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-2" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-2" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="2" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-3" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-3" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-3" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-3" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="3" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-4" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-4" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-4" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-4" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="4" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                          <div class="card-vertical" data-selected="false">
-                              <img id="imagen-producto-5" src="../static/images/Boda/Bodapruebaheader.jpg" alt="Imagen del Producto">
-                              <div class="card-info">
-                                  <h3 id="nombre-producto-5" class="text-body">Nombre del Producto</h3>
-                                  <p id="descripcion-producto-5" class="text-body-little">Descripción del Producto</p>
-                                  <p id="precio-producto-5" class="text-body">Precio: $XX.XX</p>
-                                  <button class="card-button" data-product-id="5" onclick="toggleCard(this)">Seleccionar</button>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="productos-seccion">
+                            {% set contador_img = 0 %} <!-- Se hace uso de un contador para iterar el numero de veces de los productos y con este contador se le asignara la imagen correspondiente -->
+                            {% for producto in traje_novio %}
+                            {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
+                            <div class="card-vertical" data-selected="false">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Novio/Traje novio/Traje ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <div class="card-info">
+                                        <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
+                                        <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
+                                        <p id="precio-producto-{{ producto[0] }}" class="text-body">Precio: ${{ producto[3] }}</p> <!-- precio -->
+                                        <button class="card-button" data-product-id="{{ producto[0] }}" onclick="toggleCard(this)">Seleccionar</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>         
@@ -1263,6 +588,25 @@
     
 
     <!-- CARGAR SCRIPTS -->
+
+    <script>
+        function seccion_nombre(seccion_id) {
+            // Mapear seccion_id a nombres de secciones
+            const nombres = {
+                1: 'Anillo de boda',
+                2: 'Carro de matrimonio',
+                3: 'Catering',
+                4: 'Decoración',
+                5: 'Locación',
+                6: 'Lista de regalos',
+                7: 'Música',
+                8: 'Pastel de bodas',
+                9: 'Fotografía y video',
+                10: 'Invitaciones',
+            };
+            return nombres[seccion_id] || 'Sección Desconocida';
+        }
+    </script>
     <script src="../static/js/asideuser.js"></script>
     <script src="../static/js/user/selectproduct.js"></script>
 

@@ -1,52 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Inicio de Sesion - Boda Fácil</title>
-      <!-- Link de css -->
-      <link href="../static/css/font.css" rel="stylesheet">
-      <link href="../static/css/style_element/iniciosesion.css" rel="stylesheet">
-      <link href="../static/css/style.css" rel="stylesheet">
-      <link href="../static/css/colors.css" rel="stylesheet">
-      
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesion - Boda Fácil</title>
+    <!-- Link de css -->
+    <link href="../static/css/font.css" rel="stylesheet">
+    <link href="../static/css/style_element/iniciosesion.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/colors.css" rel="stylesheet">
+</head>
+<body>
     <aside id="login-form" class="login-form">
-      <!-- Contenido del formulario de inicio de sesión -->
-      <div class="login-container text-h3">
-        <h2 class="text-h2 negro">Bienvenido a</h2>
-        <h2 class="text-h2 rojo">Boda Fácil</h2>
-        
-        <form action="/login" method="POST">
+        <div class="login-container text-h3">
+            <h2 class="text-h2 negro">Bienvenido a</h2>
+            <h2 class="text-h2 rojo">Boda Fácil</h2>
 
-          <input type="text" placeholder="Ingrese su correo" name="email">
-          <input type="password" placeholder="Ingrese su contraseña" name="contrasena">
-      
-          <div class="remember-check-user">
-            <input class="inp-cbx" id="cbx" type="checkbox" style="display: none"/>
-            <label class="cbx" for="cbx">
-              <span>
-                  <svg width="12px" height="9px" viewbox="0 0 12 9">
-                    <polyline points="1 5 4 8 11 1"></polyline>
-                  </svg>
-              </span>
-              <span class="text-body">Recordar usuario</span>
-            </label>
-          </div>
-          <button class="text-h3" type="submit">Entrar</button>
-        </form>
+            <form action="/login" method="POST" id="login-formulario">
+                <input type="text" placeholder="Ingrese su correo" name="email" required>
+                <input type="password" placeholder="Ingrese su contraseña" name="contrasena" required>
 
-        <div class=" text-body register">
-          ¿No tienes una cuenta? 
-          <a id="register-button" href="">Registrarte</a>
+                <div class="remember-check-user">
+                    <input class="inp-cbx" id="cbx" type="checkbox" style="display: none"/>
+                    <label class="cbx" for="cbx">
+                        <span>
+                            <svg width="12px" height="9px" viewbox="0 0 12 9">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                            </svg>
+                        </span>
+                        <span class="text-body">Recordar usuario</span>
+                    </label>
+                </div>
+                <button class="text-h3" id="user-button" type="submit">Entrar</button>
+            </form>
+
+            <div class="text-body register">
+                ¿No tienes una cuenta?
+                <a id="register-button" href="">Registrarte</a>
+            </div>
         </div>
-      </div>
     </aside>
-    <!-- CARGAR SCRIPTS -->
-    <script src="../static/js/transitionuserxregister.js"></script>
-    <script src="../static/js/script.js"></script>
+
     
-  </body>
-  
+</body>
 </html>

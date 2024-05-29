@@ -34,6 +34,16 @@ html, body {
     overflow-x: hidden; /* Evita el desplazamiento horizontal */
     
 }
+.menu-catalogo h3{
+    margin: 0px;
+    padding: 10px;
+    width: 100%;
+    color: var(--color-neutro-oscuro);
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #d9d9d9;
+
+}
 
 /* Estilos barra deslizable aside */
 /* Estilos para la barra de desplazamiento en navegadores WebKit (Chrome, Safari) */
@@ -67,28 +77,55 @@ html, body {
     height: 100%;
     width: 100%;
 }
-
-.menu-catalogo button {
-    display: flex;
-    margin-bottom: 5px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    background: none;
+.menu-catalogo{
+    width: auto;
 }
 
-.menu-catalogo-seccion a {
+.menu-catalogo a{
     display: flex;
     margin-bottom: 5px;
     padding: 5px 10px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    border-bottom: 0.5px solid #d9d9d9;
+}
+
+.menu-catalogo a button{
+    display: flex;
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: none;
+}
+.menu-catalogo a button:hover{
+    background: var(--color-secundario-claro-6);
+    color: var(--color-neutro-oscuro);
+    border-radius: 5px;
+}
+
+
+.menu-catalogo-seccion a {
+    background: none;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+}
+.menu-catalogo-seccion a button{
+    font-weight: normal;
+    padding: 0%;
+    margin: 0%;
 }
 
 .menu-catalogo-seccion {
@@ -96,6 +133,7 @@ html, body {
     flex-direction: column;
     margin: 0px;
     padding: 0px;
+    align-items: center;
 }
 
 /* ESTILOS los productos */
