@@ -28,18 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
                                 aside.innerHTML = html;
 
                                 // Obtiene el botón con ID 'login-button' o 'logina'.
-                                const loginButton = document.getElementById('login-button');
                                 const logina = document.getElementById('login-a');
 
-                                if (loginButton) {
-                                    // Agrega un evento de clic al botón 'login-button'.
-                                    loginButton.addEventListener('click', function(event) {
-                                        event.preventDefault();
-
-                                        // Cuando se hace clic en el botón 'login-button', vuelve a cargar el formulario de inicio de sesión.
-                                        loadLoginForm();
-                                    });
-                                }
                                 if (logina) {
                                     // Agrega un evento de clic al botón 'login-button'.
                                     logina.addEventListener('click', function(event) {

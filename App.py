@@ -30,7 +30,7 @@ def add_contact():
         mysql.connection.commit()
         cur.close()
         # Return a minimal response
-        return make_response('', 204)
+        return redirect(url_for('index'))
 
 @app.route('/login', methods=['POST'])
 def login():

@@ -80,6 +80,7 @@
         width: 100%;
         position: fixed;
         background: var(--color-neutro-claro);
+        z-index: 1000;
     }
     
 
@@ -114,8 +115,8 @@
         grid-area: H;
         padding: 0;
         margin: 0;
-        height: 25%; /* Altura del encabezado */
         border-bottom: 0.5px solid #d9d9d9;
+/*         height: 400px; */
 
     }
     /* ESPACIO PARA EL NAV tiene que despues de los estilos del header*/
@@ -185,16 +186,27 @@
         .header-derecha {
             flex-shrink: 0; /* No se encoge para adaptarse al contenido */
             width: 50%; /* Ocupa la mitad del ancho de la pantalla */
+            height: 100%; /* Ocupa toda la altura del contenedor */
+            /*             position: relative; */
+            overflow: hidden;
         }
 
         /* Estilos para hacer la imagen header responsive */
         .imagen-header {
-            max-width: 100%; /* La imagen no superará el ancho del contenedor padre */
+            width: 100%; /* La imagen ocupará todo el ancho del contenedor padre */
             height: 100%; /* La altura se ajustará automáticamente para mantener la relación de aspecto */
             display: block; /* Elimina el espacio adicional debajo de la imagen */
             margin: 0 auto; /* Centra la imagen horizontalmente */
-
+            object-fit: cover;
         }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+        }
+        
 
 
 /* Estilos para el contenido principal */
@@ -289,3 +301,4 @@ footer {
     font-size: 14px;
     color: var(--color-neutro-oscuro);
 }
+

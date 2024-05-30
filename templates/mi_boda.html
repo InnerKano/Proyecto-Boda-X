@@ -149,7 +149,7 @@
 <!--                            <script>
                                     console.log({{ contador_img }});
                                 </script> -->
-                                {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->
+
                                 <div class="card-vertical" data-selected="false">
                                     <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Anillo de boda/Argolla ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
                                     <div class="card-info">
