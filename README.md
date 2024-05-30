@@ -16,7 +16,7 @@
 <!-- Configuración de la Base de Datos: -->
 4. Abre el panel de control de MySQL haciendo clic en el botón "Admin" en el apartado de MySQL.
 5. En el panel de control, haz clic en "New" (Nuevo) para crear una nueva base de datos.
-6. En el campo de nombre de la base de datos, escribe "proyecto_boda" y haz clic en "Create" (Crear).
+6. En el campo de nombre de la base de datos, escribe "proyecto boda x" y haz clic en "Create" (Crear).
 7. En la barra de navegación, haz clic en "Import" (Importar) para cargar el archivo de base de datos.
 8. Selecciona el archivo "proyectoboda.sql" y haz clic en "Import" (Importar) en la parte inferior de la página.
 
