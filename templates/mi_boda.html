@@ -210,7 +210,7 @@
                             {% for producto in decoracion_mesa %}
                             {% set contador_img = loop.index %} <!-- Uso de loop.index:loop.index es una variable proporcionada por Jinja2 que devuelve el índice actual del ciclo, comenzando en 1.Esto elimina la necesidad de manejar manualmente el contador. -->    
                             <div class="card-vertical" data-selected="false">
-                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Decoracion ceremonia/Decoracion ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
+                                    <img id="imagen-producto-{{ producto[0] }}" src="{{ url_for('static', filename='images/Catalogo_Img/Boda-Ceremonia/Centro de mesa/Centro ' + contador_img|string + '.jpg') }}" alt="Imagen del Producto">
                                     <div class="card-info">
                                         <h3 id="nombre-producto-{{ producto[0] }}" class="text-body">{{ producto[2] }}</h3> <!-- opcion_nombre -->
                                         <p id="descripcion-producto-{{ producto[0] }}" class="text-body-little">{{ producto[1] }}</p> <!-- descripcion -->
