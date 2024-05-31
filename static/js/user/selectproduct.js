@@ -89,15 +89,15 @@ function toggleCard(button) {
     // Eliminar productos previos de la misma sección o de cualquier sección de luna de miel
     /* console.log('antes',selectedProducts); */
     if (isHoneymoonService) {
-        Object.keys(selectedProducts).forEach(key => {
-            if (key.includes('luna-de-miel')) {
-                delete selectedProducts[key];
+        Object.keys(selectedProducts).forEach(key => {//itera sobre las claves de los productos seleccionados
+            if (key.includes('luna-de-miel')) {//si la clave contiene 'luna-de-miel'
+                delete selectedProducts[key];//elimina el producto seleccionado
             }
         });
     } else {
-        Object.keys(selectedProducts).forEach(key => {
-            if (key.startsWith(`${section}-`)) {
-                delete selectedProducts[key];
+        Object.keys(selectedProducts).forEach(key => {//itera sobre las claves de los productos seleccionados
+            if (key.startsWith(`${section}-`)) {//si la clave comienza con la sección actual
+                delete selectedProducts[key];//elimina el producto seleccionado
             }
         });
     }
@@ -123,18 +123,26 @@ function moveToCart() {
     if (selectedProducts) {
         // Almacenar los productos seleccionados en una lista de carrito
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+/*         console.log('cart antes: ', cart); */
 
         // Crear un conjunto para rastrear secciones ya agregadas al carrito
-        const sectionsInCart = new Set(cart.map(product => product.section));
+        const sectionsInCart = new Set(cart.map(product => product.section));//crea un conjunto con las secciones de los productos en el carrito
 
         Object.values(selectedProducts).forEach(product => {
-            // Si la sección del producto no está ya en el carrito, agregarlo
-            if (!sectionsInCart.has(product.section)) {
-                cart.push(product);
-                sectionsInCart.add(product.section);
+            // Si la sección del producto ya está en el carrito
+            if (sectionsInCart.has(product.section)) {
+                // Reemplazar el producto existente de esa sección
+                cart = cart.map(cartProduct => //map crea un nuevo array con los resultados de la función
+                    cartProduct.section === product.section ? product : cartProduct//si la sección del producto en el carrito es igual a la sección del producto seleccionado, reemplaza el producto en el carrito por el producto seleccionado
+                );
+            } else {
+                // Si la sección no está en el carrito, agregar el producto
+                cart.push(product);//agrega el producto al carrito
+                sectionsInCart.add(product.section);//agrega la sección al conjunto
             }
         });
 
+/*         console.log('cart despues: ', cart); */
         // Guardar la lista de carrito actualizada en localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -142,3 +150,4 @@ function moveToCart() {
         localStorage.removeItem('selectedProducts');
     }
 }
+

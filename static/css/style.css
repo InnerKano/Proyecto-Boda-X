@@ -149,6 +149,30 @@
             margin-block-start: 1em;
             margin-block-end: 1em;
         }
+
+        /* Estilos para los controles del audio */
+        audio::-webkit-media-controls-panel {
+            background-color: var(--color-neutro-claro); /* Cambia el color de fondo de los controles en Chrome, Safari, y Opera */
+        }
+
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider,
+        audio::-webkit-media-controls-timeline,
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display,
+        audio::-webkit-media-controls-seek-back-button,
+        audio::-webkit-media-controls-seek-forward-button {
+            background-color: var(--color-neutro-claro); /* Cambia el color de fondo de los botones */
+        }
+
+        /* Estilos para Firefox */
+        audio::-moz-range-track {
+            background-color: var(--color-neutro-claro); /* Cambia el color de fondo de la pista de progreso en Firefox */
+        }
+
+
         /* SEARCH BAR */
 
 
@@ -197,15 +221,35 @@
             height: 100%; /* La altura se ajustará automáticamente para mantener la relación de aspecto */
             display: block; /* Elimina el espacio adicional debajo de la imagen */
             margin: 0 auto; /* Centra la imagen horizontalmente */
-            object-fit: cover;
         }
 
+        /**
+         * Representa el componente de carrusel.
+         *
+         * El componente de carrusel es responsable de mostrar una colección de imágenes en un diseño horizontal.
+         * Admite transiciones suaves y tiene una altura fija de 500 píxeles.
+         */
         .carousel {
             display: flex;
             transition: transform 0.5s ease;
             width: 100%;
-            height: 100%;
+            height: 500px;
         }
+
+        /**
+         * Representa las imágenes dentro del componente de carrusel.
+         *
+         * Las imágenes dentro del carrusel se muestran utilizando la propiedad "object-fit: contain",
+         * que asegura que toda la imagen sea visible dentro del contenedor sin distorsionar su relación de aspecto.
+         * Las imágenes tienen un ancho y alto del 100%, y un ancho mínimo del 100% para llenar el espacio disponible.
+         */
+        .carousel img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+        }
+
         
 
 

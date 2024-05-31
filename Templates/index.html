@@ -79,6 +79,18 @@
                         Su compañero de confianza en la planificación de bodas.<br>
                         Nuestro objetivo es hacer realidad la boda de sus sueños, brindándoles una experiencia personalizada y sin estrés.
                     </p>
+                    <audio id="musicaFondo" class="audio" controls>
+                        <source src="/static/audio/Can t Help Falling in Love (Elvis) - The Piano Guys.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                
+                    <script>
+                        // Reproducir la música automáticamente al cargar la página
+                        window.addEventListener('load', function() {
+                            var audio = document.getElementById('musicaFondo');
+                            audio.play();
+                        });
+                    </script>
                 </div>
 
                 <!-- Barra de Búsqueda -->
@@ -95,11 +107,12 @@
                     <img src="../static/images/home_img/header_carrusel/header 3.jpg" alt="Imagen 3" class="imagen-header">
                     <img src="../static/images/home_img/header_carrusel/header 4.jpg" alt="Imagen 4" class="imagen-header">
                     <img src="../static/images/home_img/header_carrusel/header 5.jpg" alt="Imagen 5" class="imagen-header">
-                    <!-- Agrega más imágenes según sea necesario -->
+                    <!-- agregar mas imagenes de ser necesario -->
                 </div>
 
                 <script src="../static/js/carruselhome.js"></script>
             </div>
+
             
             
         </header>

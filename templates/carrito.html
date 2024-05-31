@@ -76,9 +76,9 @@
     <script>
         // Función para cargar los productos seleccionados en el carrito
         function loadCart() {
-           /* S */
+/*             console.log('Cargando carrito...'); */
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            /* console.log(cart); */
+/*             console.log('carrito:',cart); */
             const carritoDiv = document.getElementById('carrito');
             cart.forEach(product => {
                 const productDiv = document.createElement('div');
