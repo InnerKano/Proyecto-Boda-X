@@ -1,48 +1,172 @@
-.main{
+/* Estilos generales para el contenedor principal */
+.main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 32px;
+    padding-top: 0px;
 }
 
-.main-title{
+/* Título principal de la página */
+.main-title {
     width: 100%;
     text-align: center;
+    padding: 16px;
+    margin: 0;
+    border-bottom: 0.1px solid #d9d9d9;
 }
-/* Estilos para el main izquierdo */
-.main-izquierdo{
+
+/* Estilos para la sección izquierda del main */
+.main-izquierdo {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 50%;
     height: 100%;
-
+    border-right: 0.1px solid #d9d9d9;
+    padding-top: 32px;
 }
-/* Estilos para main derecho */
-.main-derecho{
+
+/* Contenedor del formulario de compra */
+.form-compra-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Estilos para la sección derecha del main */
+.main-derecho {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 50%;
     height: 100%;
-
+    padding-top: 32px;
 }
 
-
-.contenedor-resumen-compra{
+/* Contenedor para el resumen de la compra */
+.contenedor-resumen-compra {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.product-info{
+/* Estilos para los grupos de formulario */
+.form-group {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 8px;
+}
+
+/* Estilos para las etiquetas del formulario */
+.form-group label {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+}
+
+/* Estilos para los inputs del formulario */
+.form-group input {
+    width: 50%;
+    padding: 8px;
+}
+
+/* Estilos para la información del producto */
+.product-info {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    width: 100%;
 }
-.total-amount{
+
+.product-info-title {
+    border-bottom: 0.1px solid var(--color-primario-claro-2);
+}
+
+.product-info h3, .product-info p {
+    padding: 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Estilos para el monto total */
+.total-amount {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     justify-content: center;
 }
+
+/* Estilos generales para inputs */
+input {
+    box-sizing: border-box; /* Asegura que el tamaño total del input incluya el padding y el borde */
+    padding: 16px;
+    margin: 8px 0;
+    width: 100%; /* O ajusta el ancho según sea necesario */
+    border: 1px solid #ccc; /* Define un borde básico */
+    border-radius: 15px; /* Agrega esquinas redondeadas */
+    background-color: var(--color-primario-claro-2);
+}
+
+/* Estilos para cuando el input está enfocado */
+input:focus {
+    outline: none; /* Elimina el contorno predeterminado */
+    border-color: #5D3B99; /* Cambia el color del borde cuando está enfocado */
+}
+
+
+
+
+/* Secciones del Código
+Contenedor Principal (.main):
+
+Se utiliza flex para distribuir el espacio entre las secciones izquierda y derecha.
+Se asegura que haya espacio entre los elementos con justify-content: space-between.
+Título Principal (.main-title):
+
+Centra el texto y agrega un borde inferior para separación visual.
+Sección Izquierda (.main-izquierdo):
+
+Se configura para mostrar el contenido de manera vertical y centrada.
+Incluye un borde derecho para separación visual del contenido.
+Contenedor del Formulario (.form-compra-contenedor):
+
+Asegura que el formulario de compra esté centrado y ocupe el ancho completo disponible.
+Sección Derecha (.main-derecho):
+
+Similar a la sección izquierda, pero destinada a mostrar el resumen de la compra.
+Contenedor del Resumen de Compra (.contenedor-resumen-compra):
+
+Organiza el resumen de los productos en una disposición vertical.
+Grupos de Formulario (.form-group):
+
+Organiza las etiquetas y los inputs en una disposición horizontal para una mejor alineación.
+Etiquetas del Formulario (.form-group label):
+
+Alinea las etiquetas a la derecha con un padding para separación del input.
+Inputs del Formulario (.form-group input):
+
+Define el tamaño y padding de los inputs para una apariencia uniforme y accesible.
+Información del Producto (.product-info):
+
+Distribuye la información del producto horizontalmente.
+Monto Total (.total-amount):
+
+Alinea el texto del monto total al centro de la sección.
+Estilos Generales para Inputs (input):
+
+Asegura que los inputs tengan un padding uniforme y un diseño accesible con esquinas redondeadas.
+Estilos de Foco para Inputs (input:focus):
+
+Mejora la accesibilidad visual cambiando el color del borde cuando el input está enfocado.
+Consideraciones Futuras
+Responsividad:
+Continuar ajustando los estilos para asegurar que la página sea completamente responsiva en todos los dispositivos y tamaños de pantalla.
+ */

@@ -67,19 +67,44 @@
         
 
         <div class="main-izquierdo">
-
-
+            <form action="/comprar" method="POST" id="form-compra" class="form-compra-contenedor">
+                <div class="form-group">
+                    <label for="nombre">Nombre en la Tarjeta:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="tarjeta">Número de Tarjeta:</label>
+                    <input type="text" id="tarjeta" name="tarjeta" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha de Expiración:</label>
+                    <input type="text" id="fecha" name="fecha" required placeholder="MM/AA">
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </div>
+                <form action="/comprar" method="POST" id="form-compra">
+                    <input type="hidden" name="cart" id="cart-input">
+                    <button type="submit" class="card-button">Confirmar Compra</button>
+                </form>
+            </form>
         </div>
 
         <div class="main-derecho">
+            <div class="product-info product-info-title">
+                <h3 class="text-body">Producto</h3>
+                <p class="text-body-little">Descripcion</p>
+                <p class="text-body">Precio</p>
+            </div>
             <div id="resumen-compra" class="contenedor-resumen-compra">
                 <!-- Resumen de la compra se mostrará aquí -->
             </div>
         
-            <form action="/comprar" method="POST" id="form-compra">
+<!--             <form action="/comprar" method="POST" id="form-compra">
                 <input type="hidden" name="cart" id="cart-input">
                 <button type="submit" class="card-button">Confirmar Compra</button>
-            </form>
+            </form> -->
         </div>
 
 
@@ -89,6 +114,25 @@
 
 
     <script>
+        // Validación del formulario
+        document.getElementById('form-compra').addEventListener('submit', function(event) {
+            const inputs = document.querySelectorAll('#form-compra input[required]');
+            let allFilled = true;
+            
+            inputs.forEach(function(input) {
+                if (!input.value) {
+                    allFilled = false;
+                }
+            });
+            
+            if (!allFilled) {
+                event.preventDefault();
+                alert('Por favor, complete todos los campos.');
+            }
+        });
+
+
+
         // Cargar el resumen de la compra
         function loadResumenCompra() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -100,7 +144,7 @@
                 productDiv.innerHTML = `
                     <div class="product-info">
                         <h3 class="text-body">${product.name}:</h3>
-                        <p class="text-body-little">${product.description}'</p>
+                        <p class="text-body-little">${product.description}</p>
                         <p class="text-body">$ ${product.price}</p>
                     </div>
                 `;
