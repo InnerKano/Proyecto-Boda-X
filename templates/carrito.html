@@ -36,7 +36,7 @@
         <div class="logo-container text-h2">
             <a href="/" class="logo-link">
                 <div class="logo"></div>
-                <span class="logo-text">Boda Fácil</span>
+                <span class="logo-text">Boda Ideal</span>
             </a>
         </div>
         
@@ -93,7 +93,10 @@
                     <div class="card-info" data-section="${product.section}" data-product-id="${product.productId}">
                         <h3 class="text-body">${product.name}</h3>
                         <p class="text-body-little">${product.description}</p>
-                        <p class="text-body">${product.price}</p>
+                        <div class="precio-div">
+                            <p>Precio: $</p>
+                            <p class="text-body">${product.price}</p>
+                        </div>
                     </div>
                 `;
 

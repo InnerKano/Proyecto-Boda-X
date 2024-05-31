@@ -36,7 +36,7 @@
         <div class="logo-container text-h2">
             <a href="/" class="logo-link">
                 <div class="logo"></div>
-                <span class="logo-text">Boda Fácil</span>
+                <span class="logo-text">Boda Ideal</span>
             </a>
         </div>
         
@@ -136,6 +136,7 @@
         // Cargar el resumen de la compra
         function loadResumenCompra() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            console.log('carrito:',cart);
             const resumenDiv = document.getElementById('resumen-compra');
             let total = 0;
 
@@ -150,7 +151,6 @@
                 `;
                 resumenDiv.appendChild(productDiv);
                 total += parseFloat(product.price);
-                console.log(product);
             });
 
             const totalDiv = document.createElement('div');

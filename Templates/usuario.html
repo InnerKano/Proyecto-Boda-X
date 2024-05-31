@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario - Boda Fácil</title>
+    <title>Usuario - Boda Ideal</title>
     <link href="../static/css/font.css" rel="stylesheet">
 
     <link href="../static/css/style.css" rel="stylesheet">
@@ -14,9 +14,9 @@
 </head>
 <body>
     <aside id="user-info" class="user-info">
+        <h2 class="text-h2 negro">Bienvenido a</h2>
+        <h2 class="text-h2 rojo">Boda Ideal</h2>
         <div class="user-container text-h3">
-            <h2 class="text-h2 negro">Bienvenido a</h2>
-            <h2 class="text-h2 rojo">Boda Fácil</h2>
             <h3 class="text-body">Usuario: {{ user[1] }} {{ user[2] }}</h3>
             <h3 class="text-body">Correo: {{ user[3] }}</h3>
             <h3 class="text-body">Numero: {{ user[5] }}</h3>
@@ -26,11 +26,10 @@
             <script>
               console.log({{ user | tojson }});
             </script>
-
             <!-- Muestra el nombre del usuario usando la variable 'user' proporcionada por el servidor -->
-            <a href="{{ url_for('logout') }}" class="button">Cerrar Sesión</a>
             <!-- Botón para cerrar sesión -->
         </div>
+        <a href="{{ url_for('logout') }}" class="button logout-a">Cerrar Sesión</a>
     </aside>
 </body>
 </html>

@@ -203,34 +203,41 @@ def registrarusuario():
 def carrito():
     return render_template('carrito.html')
 
-@app.route('/comprar', methods=['GET', 'POST'])
-def comprar():
-    if request.method == 'POST':
-        if 'loggedin' in session:
-            usuario_id = session['id']
-            cart = json.loads(request.form['cart'])  # Ensure 'cart' field is being sent
-            valor_total = sum([float(item['price']) for item in cart])
-            productos = json.dumps(cart)
-            cur = mysql.connection.cursor()
-            cur.execute('INSERT INTO carrito (usuario_id, productos, valor_total) VALUES (%s, %s, %s)', 
-                        (usuario_id, productos, valor_total))
-            mysql.connection.commit()
-            cur.close()
-            return redirect(url_for('factura'))
+@app.route('/comprar', methods=['GET', 'POST'])# Crear una nueva ruta para la página de compra
+def comprar():# Crear una nueva ruta para la página de compra
+    if request.method == 'POST':# Verificar si el método de solicitud es POST
+        if 'loggedin' in session:# Verificar si el usuario ha iniciado sesión
+            usuario_id = session['id']# Obtener el ID del usuario que ha iniciado sesión
+            cart = json.loads(request.form['cart'])  # Convertir el carrito de compras de JSON a un objeto de Python
+
+            # Crear una cadena de texto con la información de los productos
+            productos = "\n".join([
+                f"Producto: {item['name']}, Descripción: {item['description']}, Precio: {item['price']}"
+                for item in cart
+            ])
+
+            valor_total = sum([float(item['price']) for item in cart])# Calcular el valor total del carrito
+            #productos = json.dumps(cart)# Convertir el carrito de compras de Python a JSON
+            cur = mysql.connection.cursor()# Crear un cursor para ejecutar consultas SQL
+            cur.execute('INSERT INTO carrito (usuario_id, productos, valor_total) VALUES (%s, %s, %s)',# Insertar una nueva fila en la tabla carrito 
+                        (usuario_id, productos, valor_total))# con los datos del usuario, los productos y el valor total
+            mysql.connection.commit()# Confirmar la transacción
+            cur.close()# Cerrar el cursor
+            return redirect(url_for('factura'))# Redirigir al usuario a la página de la factura
         else:
-            return redirect(url_for('login'))
-    return render_template('comprar.html')
+            return redirect(url_for('comprar'))# Redirigir al usuario a la página de inicio de sesión si no ha iniciado sesión
+    return render_template('comprar.html')# Renderizar la plantilla de compra
 
 @app.route('/factura')
 def factura():
-    if 'loggedin' in session:
-        usuario_id = session['id']
-        cur = mysql.connection.cursor()
-        cur.execute('SELECT * FROM carrito WHERE usuario_id = %s ORDER BY fecha_compra DESC LIMIT 1', (usuario_id,))
-        carrito = cur.fetchone()
-        cur.close()
-        return render_template('factura.html', carrito=carrito)
-    return redirect(url_for('login'))
+    if 'loggedin' in session:# Verificar si el usuario ha iniciado sesión
+        usuario_id = session['id']# Obtener el ID del usuario que ha iniciado sesión
+        cur = mysql.connection.cursor()# Crear un cursor para ejecutar consultas SQL
+        cur.execute('SELECT * FROM carrito WHERE usuario_id = %s ORDER BY fecha_compra DESC LIMIT 1', (usuario_id,))# Obtener la última compra del usuario
+        carrito = cur.fetchone()# Obtener la fila de la tabla carrito
+        cur.close()# Cerrar el cursor
+        return render_template('factura.html', carrito=carrito)# Renderizar la plantilla de factura con los datos de la compra
+    return redirect(url_for('comprar'))
 
 if __name__ == '__main__':
     app.run(port = 3000, debug = True)

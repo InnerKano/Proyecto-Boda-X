@@ -1,0 +1,73 @@
+/* ACERCA DE */
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+/* Estilos básicos */
+
+.main-content {
+    padding: 20px;
+}
+
+.info-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    animation: slideInFromRight 1s ease-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info-title {
+    color: var(--color-secundario);
+    display: flex;
+    align-items: center;
+    animation: bounce 1s ease-in-out;
+}
+
+.info-title i {
+    margin-right: 10px;
+    color: var(--color-secundario-oscuro-1);
+}
+
+.info-text {
+    color: var(--color-secundario-oscuro-1);
+}
+
+
+

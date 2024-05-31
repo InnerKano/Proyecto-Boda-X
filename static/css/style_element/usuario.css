@@ -20,20 +20,35 @@
     }
 
     .user-container {
+
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 0;
-        padding-left: 16px;
-        padding-right: 16px;
+        padding: 16px;
+        gap: 8px;
     }
 
-    .user-container h2 {
+    h2 {
         text-align: center;
     }
-    .user-container .negro{
+    .negro{
         color: var(--color-neutro-oscuro);
     }
-    .user-container .rojo{
+    .rojo{
         color: var(--color-primario-oscuro-1);
+    }
+    /* Estilos para el a cerrar sesion */
+    .logout-a{
+        display: flex;
+        color: var(--color-secundario-claro-1);
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 16px;
+        justify-content: center;
+    }
+    .logout-a:hover{
+        background-color: var(--color-secundario-claro-3);
+        color: var(--color-neutro-claro);
+        background-size: 50%;
     }
