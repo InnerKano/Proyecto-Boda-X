@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, make_response
 from flask_mysqldb import MySQL
+import json
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -202,7 +203,34 @@ def registrarusuario():
 def carrito():
     return render_template('carrito.html')
 
+@app.route('/comprar', methods=['GET', 'POST'])
+def comprar():
+    if request.method == 'POST':
+        if 'loggedin' in session:
+            usuario_id = session['id']
+            cart = json.loads(request.form['cart'])  # Ensure 'cart' field is being sent
+            valor_total = sum([float(item['price']) for item in cart])
+            productos = json.dumps(cart)
+            cur = mysql.connection.cursor()
+            cur.execute('INSERT INTO carrito (usuario_id, productos, valor_total) VALUES (%s, %s, %s)', 
+                        (usuario_id, productos, valor_total))
+            mysql.connection.commit()
+            cur.close()
+            return redirect(url_for('factura'))
+        else:
+            return redirect(url_for('login'))
+    return render_template('comprar.html')
 
+@app.route('/factura')
+def factura():
+    if 'loggedin' in session:
+        usuario_id = session['id']
+        cur = mysql.connection.cursor()
+        cur.execute('SELECT * FROM carrito WHERE usuario_id = %s ORDER BY fecha_compra DESC LIMIT 1', (usuario_id,))
+        carrito = cur.fetchone()
+        cur.close()
+        return render_template('factura.html', carrito=carrito)
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(port = 3000, debug = True)

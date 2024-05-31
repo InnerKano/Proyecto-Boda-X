@@ -346,3 +346,10 @@ footer {
     color: var(--color-neutro-oscuro);
 }
 
+/* precio-div */
+.precio-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}

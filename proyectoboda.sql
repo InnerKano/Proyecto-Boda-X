@@ -23,15 +23,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `carrito`
---
-
-CREATE TABLE `carrito` (
-  `Usuario_ID` int(11) NOT NULL,
-  `Servicios_ID` int(11) NOT NULL,
-  `OpcionesServicios_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -228,31 +219,36 @@ INSERT INTO `servicios` (`ID`, `nombre`) VALUES
 
 -- --------------------------------------------------------
 
---
 -- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `contrasena` varchar(45) NOT NULL,
   `telefono` varchar(45) NOT NULL,
-  `ubicacion` varchar(45) NOT NULL
+  `ubicacion` varchar(45) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Estructura de tabla para la tabla `carrito`
+--
+
+CREATE TABLE `carrito` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `usuario_id` INT,
+  `productos` TEXT,
+  `valor_total` DECIMAL(10, 2),
+  `fecha_compra` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`usuario_id`) REFERENCES `usuario`(`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas
 --
 
---
--- Indices de la tabla `carrito`
---
-ALTER TABLE `carrito`
-  ADD KEY `Usuario_ID` (`Usuario_ID`),
-  ADD KEY `Servicios_ID` (`Servicios_ID`),
-  ADD KEY `OpcionesServicios_ID` (`OpcionesServicios_ID`);
 
 --
 -- Indices de la tabla `opcionesservicios`
@@ -265,12 +261,6 @@ ALTER TABLE `opcionesservicios`
 -- Indices de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -288,13 +278,6 @@ ALTER TABLE `usuario`
 --
 
 --
--- Filtros para la tabla `carrito`
---
-ALTER TABLE `carrito`
-  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuario` (`ID`),
-  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`Servicios_ID`) REFERENCES `servicios` (`ID`),
-  ADD CONSTRAINT `carrito_ibfk_3` FOREIGN KEY (`OpcionesServicios_ID`) REFERENCES `opcionesservicios` (`ID`);
-
 --
 -- Filtros para la tabla `opcionesservicios`
 --

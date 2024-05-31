@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-        <title>Carrito</title>
+        <title>Comprar</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -11,7 +11,7 @@
         <link href="../../static/css/colors.css" rel="stylesheet">
 
         <link href="../static/css/style_element/cards.css" rel="stylesheet">
-        <link href="../static/css/style_element/carrito.css" rel="stylesheet">
+        <link href="../static/css/style_element/comprar.css" rel="stylesheet">
 
         
         <!-- Link Fuente  -->
@@ -62,59 +62,65 @@
     </aside>
     <header class="espacio-nav "></header>
 
-    <h2 class="main-title">Carrito de Compras</h2>
-    <!-- Boton para eliminar la informacion del carrito -->
-    <div class="carrito-crud-botton">
-        <button class="card-button" onclick="clearCart()">Vaciar carrito</button>
-    </div>
+    <h2 class="main-title">Confirmar Compra</h2>
+    <main class="main">
+        
 
-    <!-- boton para ir a comprar -->
-    <div class="carrito-crud-botton">
-        <a href="/comprar" class="card-button">Comprar</a>
-    </div>
-    
-    <div id="carrito" class="contenedor-cards-carrito">
-        <!-- Productos seleccionados se mostrarán aquí -->
-    </div>
+        <div class="main-izquierdo">
+
+
+        </div>
+
+        <div class="main-derecho">
+            <div id="resumen-compra" class="contenedor-resumen-compra">
+                <!-- Resumen de la compra se mostrará aquí -->
+            </div>
+        
+            <form action="/comprar" method="POST" id="form-compra">
+                <input type="hidden" name="cart" id="cart-input">
+                <button type="submit" class="card-button">Confirmar Compra</button>
+            </form>
+        </div>
+
+
+        
+    </main>
+
 
 
     <script>
-        // Función para cargar los productos seleccionados en el carrito
-        function loadCart() {
-/*             console.log('Cargando carrito...'); */
+        // Cargar el resumen de la compra
+        function loadResumenCompra() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-/*             console.log('carrito:',cart); */
-            const carritoDiv = document.getElementById('carrito');
+            const resumenDiv = document.getElementById('resumen-compra');
+            let total = 0;
+
             cart.forEach(product => {
                 const productDiv = document.createElement('div');
-                productDiv.className = 'card-vertical';
                 productDiv.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
-                    <div class="card-info" data-section="${product.section}" data-product-id="${product.productId}">
-                        <h3 class="text-body">${product.name}</h3>
-                        <p class="text-body-little">${product.description}</p>
-                        <p class="text-body">${product.price}</p>
+                    <div class="product-info">
+                        <h3 class="text-body">${product.name}:</h3>
+                        <p class="text-body-little">${product.description}'</p>
+                        <p class="text-body">$ ${product.price}</p>
                     </div>
                 `;
-
+                resumenDiv.appendChild(productDiv);
+                total += parseFloat(product.price);
                 console.log(product);
-                carritoDiv.appendChild(productDiv);
             });
+
+            const totalDiv = document.createElement('div');
+            totalDiv.className = 'total-amount';
+            totalDiv.innerHTML = `<h3>Total: $${total.toFixed(2)}</h3>`;
+            resumenDiv.appendChild(totalDiv);
+
+            // Set the cart data in the hidden input field
+            document.getElementById('cart-input').value = JSON.stringify(cart);
         }
 
-        // Cargar el carrito al cargar la página
-        window.onload = loadCart;
-
-        // Función para limpiar el carrito
-        function clearCart() {
-            localStorage.removeItem('cart');
-            location.reload();
-        }
-
+        window.onload = loadResumenCompra;
     </script>
 
-    <!-- CARGAR SCRIPTS -->
     <script src="../static/js/asideuser.js"></script>
-    
 </body>
 </html>

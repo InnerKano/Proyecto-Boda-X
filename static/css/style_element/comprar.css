@@ -1,0 +1,48 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+.main-title{
+    width: 100%;
+    text-align: center;
+}
+/* Estilos para el main izquierdo */
+.main-izquierdo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+}
+/* Estilos para main derecho */
+.main-derecho{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+}
+
+
+.contenedor-resumen-compra{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.total-amount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: center;
+}

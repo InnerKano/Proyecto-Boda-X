@@ -80,7 +80,7 @@ function toggleCard(button) {
         image: sectionElement.querySelector(`#imagen-producto-${productId}`).src,
         name: sectionElement.querySelector(`#nombre-producto-${productId}`).textContent,
         description: sectionElement.querySelector(`#descripcion-producto-${productId}`).textContent,
-        price: sectionElement.querySelector(`#precio-producto-${productId}`).textContent
+        price: sectionElement.querySelector(`#precio-producto-${productId}`).textContent,
     };
 
     // Guardar o actualizar el producto seleccionado en localStorage

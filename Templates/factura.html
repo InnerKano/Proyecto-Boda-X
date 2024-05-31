@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="nav-container">
+        <!-- Logo y nombre -->
+        <div class="logo-container text-h2">
+            <a href="/" class="logo-link">
+                <div class="logo"></div>
+                <span class="logo-text">Boda Fácil</span>
+            </a>
+        </div>
+        
+        <div class="right-nav">
+            <ul class="nav-links text-body">
+                <li class="nav-link-1"><a href="/miboda">MI BODA</a></li>
+                <li class="nav-link-2"><a href="/acercade">ACERCA DE</a></li>
+            </ul>
+    
+            <div class="nav-icons">
+                <a href="#" title="Go to User Section" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="espacio-nav"></header>
+
+    <h2 class="main-title">Factura de Compra</h2>
+
+    <div id="factura" class="contenedor-factura">
+        <!-- Información de la factura se mostrará aquí -->
+        <h3>Carrito ID: {{ carrito[0] }}</h3>
+        <h3>Usuario ID: {{ carrito[1] }}</h3>
+        <h3>Productos:</h3>
+        <pre>{{ carrito[2] }}</pre>
+        <h3>Valor Total: ${{ carrito[3] }}</h3>
+        <h3>Fecha de Compra: {{ carrito[4] }}</h3>
+    </div>
+
+    <script src="../static/js/asideuser.js"></script>
+</body>
+</html>
