@@ -1,6 +1,6 @@
 # Proyecto-Boda
 
-###Link al prototipo hecho en figma: [https://www.figma.com/design/CTVHdnf3OTBvGTNBzIAdfh/Boda?node-id=17-225&t=axitfl36IWwckdVt-1](https://www.figma.com/design/CTVHdnf3OTBvGTNBzIAdfh/Boda?node-id=17-225&t=axitfl36IWwckdVt-1)
+### Link al prototipo hecho en figma: [https://www.figma.com/design/CTVHdnf3OTBvGTNBzIAdfh/Boda?node-id=17-225&t=axitfl36IWwckdVt-1](https://www.figma.com/design/CTVHdnf3OTBvGTNBzIAdfh/Boda?node-id=17-225&t=axitfl36IWwckdVt-1)
 
 Las funcionalidades que se muestran en las imagenes se conectan con la base de datos y funcionan correctamente.
 
