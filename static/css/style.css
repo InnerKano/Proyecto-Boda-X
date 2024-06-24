@@ -150,28 +150,6 @@
             margin-block-end: 1em;
         }
 
-        /* Estilos para los controles del audio */
-        audio::-webkit-media-controls-panel {
-            background-color: var(--color-neutro-claro); /* Cambia el color de fondo de los controles en Chrome, Safari, y Opera */
-        }
-
-        audio::-webkit-media-controls-play-button,
-        audio::-webkit-media-controls-pause-button,
-        audio::-webkit-media-controls-mute-button,
-        audio::-webkit-media-controls-volume-slider,
-        audio::-webkit-media-controls-timeline,
-        audio::-webkit-media-controls-current-time-display,
-        audio::-webkit-media-controls-time-remaining-display,
-        audio::-webkit-media-controls-seek-back-button,
-        audio::-webkit-media-controls-seek-forward-button {
-            background-color: var(--color-neutro-claro); /* Cambia el color de fondo de los botones */
-        }
-
-        /* Estilos para Firefox */
-        audio::-moz-range-track {
-            background-color: var(--color-neutro-claro); /* Cambia el color de fondo de la pista de progreso en Firefox */
-        }
-
 
         /* SEARCH BAR */
 
