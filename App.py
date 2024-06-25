@@ -1,15 +1,28 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, make_response
 from flask_mysqldb import MySQL
+from dotenv import load_dotenv
 import json
 
-app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+# Cargar variables de entorno desde el archivo .env
+load_dotenv()
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'proyecto boda x'
+app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY')
+
+app.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST')
+app.config['MYSQL_USER'] = os.environ.get('MYSQL_USER')
+app.config['MYSQL_PASSWORD'] = os.environ.get('MYSQL_PASSWORD')
+app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB')
+app.config['MYSQL_PORT'] = int(os.environ.get('MYSQL_PORT', 3306))
 mysql = MySQL(app)
+
+if not app.debug:
+    import logging
+    from logging.handlers import RotatingFileHandler
+    handler = RotatingFileHandler('error.log', maxBytes=10000, backupCount=1)
+    handler.setLevel(logging.ERROR)
+    app.logger.addHandler(handler)
 
 @app.route('/')
 def index():
@@ -240,5 +253,5 @@ def factura():
     return redirect(url_for('comprar'))
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=False)
 
