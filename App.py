@@ -47,7 +47,7 @@ def login():
         session['email'] = user[3]
         return jsonify({'success': True})
     else:
-        return jsonify({'success': False, 'message': 'Login failed'})
+        return jsonify({'success': False, 'message': 'Usuario o contraseña incorrectos'})
     
 @app.route('/logout')
 def logout():

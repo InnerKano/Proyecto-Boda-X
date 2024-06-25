@@ -105,8 +105,10 @@ document.addEventListener("DOMContentLoaded", function() {
                                     })
                                     .catch(error => console.log(error));
                             } else {
-                                // Si la solicitud falla, muestra un mensaje de error en la consola
-                                console.log(data.message);
+                                // Si la solicitud falla, muestra un mensaje de error en el div correspondiente
+                                const errorMessage = document.getElementById('error-message');
+                                errorMessage.textContent = data.message;
+                                errorMessage.style.display = 'block';
                             }
                         })
                         // Maneja cualquier error durante la solicitud o el procesamiento de la respuesta

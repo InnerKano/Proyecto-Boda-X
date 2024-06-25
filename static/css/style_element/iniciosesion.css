@@ -220,4 +220,8 @@ body {
     border-color: #5D3B99; /* Cambia el color del borde cuando está enfocado */
   }
 
-
+#error-message{
+  color: var(--color-primario-oscuro-3);
+  display: none;
+  padding: 1rem;
+}
